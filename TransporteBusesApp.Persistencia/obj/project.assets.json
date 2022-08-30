@@ -7263,31 +7263,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\germa\\.nuget\\packages\\": {}
+    "C:\\Users\\EGSF\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\germa\\Desktop\\83\\TransporteBusesApp\\TransporteBusesApp.Persistencia\\TransporteBusesApp.Persistencia.csproj",
+      "projectUniqueName": "C:\\Users\\EGSF\\Desktop\\Proyecto Final Transportes app\\TransportesApp\\TransporteBusesApp.Persistencia\\TransporteBusesApp.Persistencia.csproj",
       "projectName": "TransporteBusesApp.Persistencia",
-      "projectPath": "C:\\Users\\germa\\Desktop\\83\\TransporteBusesApp\\TransporteBusesApp.Persistencia\\TransporteBusesApp.Persistencia.csproj",
-      "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\germa\\Desktop\\83\\TransporteBusesApp\\TransporteBusesApp.Persistencia\\obj\\",
+      "projectPath": "C:\\Users\\EGSF\\Desktop\\Proyecto Final Transportes app\\TransportesApp\\TransporteBusesApp.Persistencia\\TransporteBusesApp.Persistencia.csproj",
+      "packagesPath": "C:\\Users\\EGSF\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\EGSF\\Desktop\\Proyecto Final Transportes app\\TransportesApp\\TransporteBusesApp.Persistencia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\germa\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\EGSF\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "C:\\Users\\germa\\Desktop\\83\\TransporteBusesApp\\TransporteBusesApp.Dominio\\TransporteBusesApp.Dominio.csproj": {
-              "projectPath": "C:\\Users\\germa\\Desktop\\83\\TransporteBusesApp\\TransporteBusesApp.Dominio\\TransporteBusesApp.Dominio.csproj"
+            "C:\\Users\\EGSF\\Desktop\\Proyecto Final Transportes app\\TransportesApp\\TransporteBusesApp.Dominio\\TransporteBusesApp.Dominio.csproj": {
+              "projectPath": "C:\\Users\\EGSF\\Desktop\\Proyecto Final Transportes app\\TransportesApp\\TransporteBusesApp.Dominio\\TransporteBusesApp.Dominio.csproj"
             }
           }
         }
@@ -7300,6 +7303,7 @@
     },
     "frameworks": {
       "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -7337,7 +7341,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.422\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

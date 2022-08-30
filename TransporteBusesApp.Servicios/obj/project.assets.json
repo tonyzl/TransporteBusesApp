@@ -8,28 +8,31 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\germa\\.nuget\\packages\\": {}
+    "C:\\Users\\EGSF\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\germa\\Desktop\\83\\TransporteBusesApp\\TransporteBusesApp.Servicios\\TransporteBusesApp.Servicios.csproj",
+      "projectUniqueName": "C:\\Users\\EGSF\\Desktop\\Proyecto Final Transportes app\\TransportesApp\\TransporteBusesApp.Servicios\\TransporteBusesApp.Servicios.csproj",
       "projectName": "TransporteBusesApp.Servicios",
-      "projectPath": "C:\\Users\\germa\\Desktop\\83\\TransporteBusesApp\\TransporteBusesApp.Servicios\\TransporteBusesApp.Servicios.csproj",
-      "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\germa\\Desktop\\83\\TransporteBusesApp\\TransporteBusesApp.Servicios\\obj\\",
+      "projectPath": "C:\\Users\\EGSF\\Desktop\\Proyecto Final Transportes app\\TransportesApp\\TransporteBusesApp.Servicios\\TransporteBusesApp.Servicios.csproj",
+      "packagesPath": "C:\\Users\\EGSF\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\EGSF\\Desktop\\Proyecto Final Transportes app\\TransportesApp\\TransporteBusesApp.Servicios\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\germa\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\EGSF\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -41,6 +44,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -59,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.422\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
