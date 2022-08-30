@@ -1,0 +1,21 @@
+@page
+@model TransporteBusesApp.Frontend.Pages.FormBusesModel
+@{
+}
+
+<div class="text-center">
+    <form method="POST">
+        <label for="marca" class="form-label">Marca:</label>
+        <input type="text" class="form-control" id="marca" name="marca" required placeholder="Marca">
+        <label for="modelo" class="form-label">Modelo:</label>
+        <input type="number" class="form-control" id="modelo" name="modelo" required placeholder="Modelo">
+        <label for="kilometraje" class="form-label">Kilometraje:</label>
+        <input type="number" class="form-control" id="kilometraje" name="kilometraje" required placeholder="Kilometraje">
+        <label for="nro_asientos" class="form-label">Numero de Asientos:</label>
+        <input type="number" class="form-control" id="nro_asientos" name="nro_asientos" required placeholder="Numero de Asientos">
+        <label for="placa" class="form-label">Placa:</label>
+        <input type="text" class="form-control" id="placa" name="placa" required placeholder="Placa">
+        <hr>
+        <button type="submit" class="btn btn-success">Enviar</button>
+    </form>
+</div>
