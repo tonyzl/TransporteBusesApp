@@ -17,9 +17,16 @@
 mono_crash.*
 
 # Build results
-/.vs/*
-/**/obj/**/*
-/**/bin/**/*
+/TransporteBusesApp.Consola/bin/
+/TransporteBusesApp.Consola/obj/
+/TransporteBusesApp.Frontend/bin/
+/TransporteBusesApp.Frontend/obj/
+/TransporteBusesApp.Persistencia/bin/
+/TransporteBusesApp.Persistencia/obj/
+/TransporteBusesApp.Dominio/bin/
+/TransporteBusesApp.Dominio/obj/
+/TransporteBusesApp.Servicios/bin/
+/TransporteBusesApp.Servicios/obj/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
