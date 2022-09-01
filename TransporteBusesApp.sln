@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransporteBusesApp.Consola", "TransporteBusesApp.Consola\TransporteBusesApp.Consola.csproj", "{C7652B68-7EDC-41BC-A3F0-25872B1C0862}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransporteBusesApp.Dominio", "TransporteBusesApp.Dominio\TransporteBusesApp.Dominio.csproj", "{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{C7652B68-7EDC-41BC-A3F0-25872B1C0862}.Release|x64.Build.0 = Release|Any CPU
 		{C7652B68-7EDC-41BC-A3F0-25872B1C0862}.Release|x86.ActiveCfg = Release|Any CPU
 		{C7652B68-7EDC-41BC-A3F0-25872B1C0862}.Release|x86.Build.0 = Release|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Debug|x64.Build.0 = Debug|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Debug|x86.Build.0 = Debug|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Release|x64.ActiveCfg = Release|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Release|x64.Build.0 = Release|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Release|x86.ActiveCfg = Release|Any CPU
+		{3F73F889-4A4A-4E66-9ADF-E87BE6B1270C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
