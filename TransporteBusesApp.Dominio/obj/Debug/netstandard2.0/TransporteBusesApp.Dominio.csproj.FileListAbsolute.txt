@@ -1,9 +1,0 @@
-C:\Users\germa\Desktop\83\TransporteBusesApp\TransporteBusesApp.Dominio\bin\Debug\netstandard2.0\TransporteBusesApp.Dominio.deps.json
-C:\Users\germa\Desktop\83\TransporteBusesApp\TransporteBusesApp.Dominio\bin\Debug\netstandard2.0\TransporteBusesApp.Dominio.dll
-C:\Users\germa\Desktop\83\TransporteBusesApp\TransporteBusesApp.Dominio\bin\Debug\netstandard2.0\TransporteBusesApp.Dominio.pdb
-C:\Users\germa\Desktop\83\TransporteBusesApp\TransporteBusesApp.Dominio\obj\Debug\netstandard2.0\TransporteBusesApp.Dominio.csprojAssemblyReference.cache
-C:\Users\germa\Desktop\83\TransporteBusesApp\TransporteBusesApp.Dominio\obj\Debug\netstandard2.0\TransporteBusesApp.Dominio.AssemblyInfoInputs.cache
-C:\Users\germa\Desktop\83\TransporteBusesApp\TransporteBusesApp.Dominio\obj\Debug\netstandard2.0\TransporteBusesApp.Dominio.AssemblyInfo.cs
-C:\Users\germa\Desktop\83\TransporteBusesApp\TransporteBusesApp.Dominio\obj\Debug\netstandard2.0\TransporteBusesApp.Dominio.csproj.CoreCompileInputs.cache
-C:\Users\germa\Desktop\83\TransporteBusesApp\TransporteBusesApp.Dominio\obj\Debug\netstandard2.0\TransporteBusesApp.Dominio.dll
-C:\Users\germa\Desktop\83\TransporteBusesApp\TransporteBusesApp.Dominio\obj\Debug\netstandard2.0\TransporteBusesApp.Dominio.pdb
