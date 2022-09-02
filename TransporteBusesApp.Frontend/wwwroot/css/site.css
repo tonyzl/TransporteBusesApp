@@ -24,6 +24,16 @@ a {
   border-color: #1861ac;
 }
 
+#sidebar ul li a:hover {
+    color: #fff;
+    background: #1b6ec2;
+}
+#sidebar{
+    position:absolute;
+    left:auto;
+    max-width: 20%;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
