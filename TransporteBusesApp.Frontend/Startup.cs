@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TransporteBusesApp.Persistencia.AppRepositorios;
 
 namespace TransporteBusesApp.Frontend
 {
@@ -25,6 +26,7 @@ namespace TransporteBusesApp.Frontend
         {
             services.AddRazorPages()
                 .AddRazorRuntimeCompilation();
+                services.AddSingleton<RepositorioEstaciones, RepositorioEstaciones>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
