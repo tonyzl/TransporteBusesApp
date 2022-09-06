@@ -4,14 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using TransporteBusesApp.Persistencia.AppRepositorios;
+using TransporteBusesApp.Dominio;
  
 namespace TransporteBusesApp.Frontend.Pages
 {
-    public class ListBusesModel : PageModel
+    public class ListBusModel : PageModel
     {
-        public void OnGet()
-        {
+       
+        private readonly RepositorioBuses repositorioBuses;
+        public IEnumerable<Buses> Buses {get;set;}
  
-        }
+    public ListBusModel(RepositorioBuses repositorioBuses)
+    {
+        this.repositorioBuses=repositorioBuses;
+     }
+ 
+    public void OnGet()
+    {
+        Buses=repositorioBuses.GetAll();
+    }
     }
 }
