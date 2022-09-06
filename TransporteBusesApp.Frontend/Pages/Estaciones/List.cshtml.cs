@@ -13,7 +13,7 @@ namespace TransporteBusesApp.Frontend.Pages
     {
        
     private readonly RepositorioEstaciones repositorioEstaciones;
-    public IEnumerable<Estaciones> Estaciones {get;set;}
+    public IEnumerable<Dominio.Estaciones> Estaciones {get;set;}
  
     public ListEstacionesModel(RepositorioEstaciones repositorioEstaciones)
     {
