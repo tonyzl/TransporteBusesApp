@@ -12,7 +12,7 @@ namespace TransporteBusesApp.Frontend.Pages
     public class DetailsBusModel : PageModel
     {
        private readonly RepositorioBuses repositorioBuses;
-              public Buses Bus {get;set;}
+              public Dominio.Buses Bus {get;set;}
  
         public DetailsBusModel(RepositorioBuses repositorioBuses)
        {

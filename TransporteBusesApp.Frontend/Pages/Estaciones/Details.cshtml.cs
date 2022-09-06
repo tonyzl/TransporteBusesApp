@@ -11,9 +11,11 @@ namespace TransporteBusesApp.Frontend.Pages
 {
     public class DetailsEstacionModel : PageModel
     {
-       private readonly RepositorioEstaciones repositorioEstaciones;
+        #region constructor
+        private readonly RepositorioEstaciones repositorioEstaciones;
         public Dominio.Estaciones Estacion {get;set;}
- 
+        
+        #endregion
         public DetailsEstacionModel(RepositorioEstaciones repositorioEstaciones)
        {
             this.repositorioEstaciones=repositorioEstaciones;
