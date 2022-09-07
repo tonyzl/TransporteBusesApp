@@ -28,5 +28,18 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         public Buses GetWithId(int id){
             return buses.SingleOrDefault(b => b.id == id);
         }
+
+        public Buses Update(Buses newBus){
+            var bus= buses.SingleOrDefault(b => b.id == newBus.id);
+            if(bus != null){
+                bus.marca = newBus.marca;
+                bus.modelo = newBus.modelo;
+                bus.kilometraje = newBus.kilometraje;
+                bus.nro_asientos = newBus.nro_asientos;
+                bus.placa = newBus.placa;
+            }
+        return bus;
+        }
+
     }
 }
