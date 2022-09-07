@@ -12,6 +12,7 @@ namespace TransporteBusesApp.Frontend.Pages
     public class EditBusModel : PageModel
     {
         private readonly RepositorioBuses repositorioBuses;
+        [BindProperty]
         public Buses Bus {get;set;}
  
         public EditBusModel(RepositorioBuses repositorioBuses)
