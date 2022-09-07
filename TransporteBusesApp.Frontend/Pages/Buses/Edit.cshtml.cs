@@ -13,7 +13,7 @@ namespace TransporteBusesApp.Frontend.Pages
     {
         private readonly RepositorioBuses repositorioBuses;
         [BindProperty]
-        public Buses Bus {get;set;}
+        public Dominio.Buses Bus {get;set;}
  
         public EditBusModel(RepositorioBuses repositorioBuses)
        {
