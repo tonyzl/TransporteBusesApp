@@ -11,11 +11,11 @@ namespace TransporteBusesApp.Frontend.Pages
 {
     public class EditBusModel : PageModel
     {
-        private readonly RepositorioBuses repositorioBuses;
+        private readonly IRepositorioBuses repositorioBuses;
         [BindProperty]
         public Dominio.Buses Bus {get;set;}
  
-        public EditBusModel(RepositorioBuses repositorioBuses)
+        public EditBusModel(IRepositorioBuses repositorioBuses)
        {
             this.repositorioBuses=repositorioBuses;
        }
@@ -36,7 +36,7 @@ namespace TransporteBusesApp.Frontend.Pages
             {
              Bus = repositorioBuses.Update(Bus);
             }
-            return RedirectToPage("./List");
+            return RedirectToPage("List");
         }
     }
 }

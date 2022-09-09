@@ -5,7 +5,7 @@ using System;
  
 namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
-    public class RepositorioBuses
+    public class RepositorioBuses : IRepositorioBuses
     {
         List<Buses> buses;
  
@@ -19,9 +19,16 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
  
             };
         }
- 
+
+        public Buses Create(Buses bus)
+        {
+            buses.Add(bus);
+            return buses.Last();
+        }
+
         public IEnumerable<Buses> GetAll()
         {
+            
             return buses;
         }
  
@@ -41,5 +48,6 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         return bus;
         }
 
+        
     }
 }
