@@ -2,9 +2,16 @@
 @model TransporteBusesApp.Frontend.Pages.ListBusModel
 @{
 }
- 
-<h1>Listado de Buses</h1>
-<table class="table">
+<div class="row">
+    <div class="col-6 ">
+        <h1>Listado de Buses</h1>
+    </div>
+    <div class="col-6 ">
+        <a  class="btn btn-success col-6" asp-page="/Buses/Create">Crear Bus</a>
+    </div>
+</div> 
+
+<table class="table table-bordered table-striped ">
     <thead>
         <th>Id</th>
         <th>Marca</th>
