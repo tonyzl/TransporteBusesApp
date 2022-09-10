@@ -11,11 +11,11 @@ namespace TransporteBusesApp.Frontend.Pages
 {
     public class EditEstacionModel : PageModel
     {
-       private readonly RepositorioEstaciones repositorioEstaciones;
+       private readonly IRepositorioEstaciones repositorioEstaciones;
        [BindProperty]
        public Dominio.Estaciones Estacion {get;set;}
  
-        public EditEstacionModel(RepositorioEstaciones repositorioEstaciones)
+        public EditEstacionModel(IRepositorioEstaciones repositorioEstaciones)
        {
             this.repositorioEstaciones=repositorioEstaciones;
        }
