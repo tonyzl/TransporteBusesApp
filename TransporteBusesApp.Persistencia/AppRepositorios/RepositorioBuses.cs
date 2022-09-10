@@ -39,6 +39,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         public Buses Update(Buses newBus){
             var bus= buses.SingleOrDefault(b => b.id == newBus.id);
             if(bus != null){
+                
                 bus.marca = newBus.marca;
                 bus.modelo = newBus.modelo;
                 bus.kilometraje = newBus.kilometraje;

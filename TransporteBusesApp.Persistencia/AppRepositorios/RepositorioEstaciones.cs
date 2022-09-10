@@ -19,9 +19,10 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             };
         }
 
-        public Estaciones Create(Estaciones bus)
+        public Estaciones Create(Estaciones estacion)
         {
-            throw new NotImplementedException();
+            estaciones.Add(estacion);
+            return estaciones.Last(); //se retorna la estacion creada
         }
 
         public IEnumerable<Estaciones> GetAll()

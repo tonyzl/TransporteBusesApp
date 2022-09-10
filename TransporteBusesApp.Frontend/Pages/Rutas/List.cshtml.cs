@@ -14,7 +14,7 @@ namespace TransporteBusesApp.Frontend.Pages
         private readonly IRepositorioRutas repositorioRutas;
 
         [BindProperty]
-        public IEnumerable<Dominio.Rutas> Rutas { get; set; }
+        public IEnumerable<Dominio.Rutas> rutas { get; set; }
 
         public ListRutasModel(IRepositorioRutas repositorioRutas)
         {
@@ -22,7 +22,7 @@ namespace TransporteBusesApp.Frontend.Pages
         }
         public void OnGet()
         {
- 
+            rutas = repositorioRutas.GetAll();
         }
     }
 }
