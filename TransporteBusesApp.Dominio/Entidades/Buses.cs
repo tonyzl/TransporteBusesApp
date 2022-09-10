@@ -26,7 +26,11 @@ namespace TransporteBusesApp.Dominio{
 
         [Required]
         [Display(Name="Placa")]         
-        public string placa {get;set;}            
+        public string placa {get;set;}  
+
+        [Required]
+        [Display(Name="Foto")]         
+        public string foto {get;set;}            
            
     }
 }
