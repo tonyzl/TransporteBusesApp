@@ -1,14 +1,16 @@
 @page
+@model TransporteBusesApp.Frontend.Pages.ListRutasModel;
+
 @{
 }
  
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Origen</th>
-      <th scope="col">Destino</th>
-      <th scope="col">Tiempo Estimado</th>
+      <th scope="col"><label asp-for="Rutas.FirstOrDefault().id"></label></th>
+      <th scope="col"><label asp-for="Rutas.FirstOrDefault().origen"></label></th>
+      <th scope="col"><label asp-for="Rutas.FirstOrDefault().destino"></label></th>
+      <th scope="col"><label asp-for="Rutas.FirstOrDefault().tiempo_estimado"></label></th>
     </tr>
   </thead>
   <tbody>
