@@ -39,8 +39,8 @@
                     <td>@Html.DisplayFor(m =>item.nro_asientos)</td>
                     <td>@Html.DisplayFor(m =>item.placa)</td>
                     <td>
-                        <a class="btn btn-success" asp-page="/Buses/Details" asp-route-id="@item.id">Ver</a>
-                        <a class="btn btn-info" asp-page="/Buses/Edit" asp-route-id="@item.id">Editar</a>
+                        <a class="btn btn-success" asp-page="/Buses/Details" asp-route-busId="@item.id">Ver</a>
+                        <a class="btn btn-info" asp-page="/Buses/Edit" asp-route-busId="@item.id">Editar</a>
                         <a class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
