@@ -12,5 +12,6 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         public Dominio.Estaciones GetWithId(int id);
         public Dominio.Estaciones Update(Dominio.Estaciones newbus);
         public Dominio.Estaciones Create(Dominio.Estaciones bus);
+        public bool Delete(int id);
     }
 }

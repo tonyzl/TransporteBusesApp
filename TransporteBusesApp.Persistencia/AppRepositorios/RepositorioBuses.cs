@@ -26,6 +26,11 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             return buses.Last();
         }
 
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Buses> GetAll()
         {
             

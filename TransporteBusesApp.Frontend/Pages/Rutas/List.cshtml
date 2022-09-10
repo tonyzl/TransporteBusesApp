@@ -38,8 +38,8 @@
             {
                 <tr>
                     <th scope="row">@Html.DisplayFor(m =>item.id)</th>
-                    <td>@Html.DisplayFor(m =>item.origen.nombre)</td>
-                    <td>@Html.DisplayFor(m =>item.destino.nombre)</td>
+                    <td>@Html.DisplayFor(m =>item.origen)</td>
+                    <td>@Html.DisplayFor(m =>item.destino)</td>
                     <td>@Html.DisplayFor(m =>item.tiempo_estimado)</td>
                     <td>
                         <a class="btn btn-success" asp-page="/Rutas/Details" asp-route-id="@item.id">Ver</a>

@@ -25,6 +25,11 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             return estaciones.Last(); //se retorna la estacion creada
         }
 
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Estaciones> GetAll()
         {
             return estaciones;
