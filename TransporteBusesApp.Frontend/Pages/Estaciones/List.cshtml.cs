@@ -12,10 +12,10 @@ namespace TransporteBusesApp.Frontend.Pages
     public class ListEstacionesModel : PageModel
     {
        
-    private readonly RepositorioEstaciones repositorioEstaciones;
+    private readonly IRepositorioEstaciones repositorioEstaciones;
     public IEnumerable<Dominio.Estaciones> Estaciones {get;set;}
  
-    public ListEstacionesModel(RepositorioEstaciones repositorioEstaciones)
+    public ListEstacionesModel(IRepositorioEstaciones repositorioEstaciones)
     {
         this.repositorioEstaciones=repositorioEstaciones;
     }

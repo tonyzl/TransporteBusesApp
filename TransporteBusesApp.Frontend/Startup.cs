@@ -26,7 +26,7 @@ namespace TransporteBusesApp.Frontend
         {
             services.AddRazorPages()
                 .AddRazorRuntimeCompilation();
-                services.AddSingleton<RepositorioEstaciones, RepositorioEstaciones>();
+                services.AddSingleton<IRepositorioEstaciones, RepositorioEstaciones>();
                 services.AddSingleton<IRepositorioBuses, RepositorioBuses>();
 
         }

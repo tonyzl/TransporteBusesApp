@@ -5,7 +5,7 @@ using System;
  
 namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
-    public class RepositorioEstaciones
+    public class RepositorioEstaciones :IRepositorioEstaciones
     {
         List<Estaciones> estaciones;
  
@@ -18,7 +18,12 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
                 new Estaciones{id=3,nombre="Terminal",direccion= "Carrera 54",coord_x= "15.457878",coord_y= "24.457878",tipo= "Principal"}
             };
         }
- 
+
+        public Estaciones Create(Estaciones bus)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Estaciones> GetAll()
         {
             return estaciones;
