@@ -20,6 +20,7 @@
             <label for="nombre" class="col-form-label col-2 font-weight-bold" placeholder="ingrese un Nombre">Nombre: </label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" asp-for="Estacion.nombre" required placeholder="Nombre" minlength="3">
+                <span class="text-danger" asp-validation-for="Estacion.nombre"></span>
             </div>
         </div>
         <div class="form-group row">
@@ -46,7 +47,7 @@
                 <select asp-for="Estacion.tipo" class="form-control">
                     <option value="">Seleccione el Tipo</option>
                     <option value="Principal">Principal</option>
-                    <option value="Segundaria">Segundaria</option>
+                    <option value="Secundaria">Secundaria</option>
                 </select>
             </div>
         </div>
