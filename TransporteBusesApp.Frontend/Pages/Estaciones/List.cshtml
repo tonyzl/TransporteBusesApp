@@ -44,11 +44,11 @@
           <td>@estacion.coord_y</td>
           <td>@estacion.tipo</td>
           <td>
-            <a class="btn btn-info" asp-page="./Details" asp-route-estacionId="@estacion.id"><i class="fas fa-adjust"></i>Ver</a>
-            <a class="btn btn-info" asp-page="./Edit" asp-route-estacionId="@estacion.id">Editar</a>
-            <a class="btn btn-danger btn-delete" href="#" onclick="alerta_eliminar(@estacion.id, '@estacion.nombre')">Eliminar</a>
-            <form method="POST" id="form_delete_@estacion.id">
-              <input type="hidden" class="form-control d-none" id="id" name="id" asp-for="@estacion.id">
+            <a class="btn btn-info" asp-page="./Details" asp-route-estacionId="@estacion.id"><i class="fa fa-eye"></i> Ver</a>
+            <a class="btn btn-info" asp-page="./Edit" asp-route-estacionId="@estacion.id"><i class="fa fa-pencil"></i> Editar</a>
+            <a class="btn btn-danger btn-delete text-white"  onclick="alerta_eliminar(@estacion.id, '@estacion.nombre')"><i class="fa fa-trash-o"></i> Eliminar</a>
+            <form method="POST" asp-page-handler="Delete" id="form_delete_@estacion.id">
+              <input type="hidden" class="form-control d-none" asp-for="@estacion.id">
             </form>
           </td>
         </tr>

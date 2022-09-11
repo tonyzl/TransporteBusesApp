@@ -13,8 +13,12 @@ namespace TransporteBusesApp.Frontend.Pages
     {
        
         private readonly IRepositorioBuses repositorioBuses;
+        [BindProperty]
+        
         public IEnumerable<Dominio.Buses> Buses {get;set;}
- 
+
+        [BindProperty]
+        public Dominio.Buses bus { get; set; }
     public ListBusModel(IRepositorioBuses repositorioBuses)
     {
         this.repositorioBuses=repositorioBuses;
@@ -24,5 +28,18 @@ namespace TransporteBusesApp.Frontend.Pages
     {
         Buses=repositorioBuses.GetAll();
     }
+    public IActionResult OnPostDelete(int id)
+        {
+            if(bus.id > 0)
+            {
+                if(this.repositorioBuses.Delete(bus.id)){
+                    return Page();
+                }else{
+                    return NotFound();
+                }
+            }
+
+            return RedirectToPage("./List");
+        }
     }
 }

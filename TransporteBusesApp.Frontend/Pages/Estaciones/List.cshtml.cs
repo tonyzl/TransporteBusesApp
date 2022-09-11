@@ -28,8 +28,11 @@ namespace TransporteBusesApp.Frontend.Pages
         {
             Estaciones=repositorioEstaciones.GetAll();
         }
+        public void OnPost()
+        {
 
-        public IActionResult OnPost()
+        }
+        public IActionResult OnPostDelete(int id)
         {
             if(Estacion.id > 0)
             {
