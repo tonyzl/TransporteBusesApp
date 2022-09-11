@@ -12,5 +12,6 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         public Buses GetWithId(int id);
         public Buses Update(Buses newbus);
         public Buses Create(Buses bus);
+        public bool Delete(int id);
     }
 }

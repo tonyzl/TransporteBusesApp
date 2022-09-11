@@ -12,16 +12,13 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 /// RepositorioRutas : IRepositorioRutas
 /// </code>
 /// </summary>
-/// 
-/// 
-/// 
-
     public interface IRepositorioRutas
     {
         public IEnumerable<Rutas> GetAll();
         public Rutas GetWithId(int id);
         public Rutas Update(Rutas newbus);
         public Rutas Create(Rutas bus);
+        public bool Delete(int id);
     }
     
 }   

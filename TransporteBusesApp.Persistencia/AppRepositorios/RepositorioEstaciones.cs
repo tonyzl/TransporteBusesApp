@@ -56,7 +56,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         {
             var estacion = estaciones.SingleOrDefault(b => b.id == id);
             estaciones.Remove(estacion);
-            return estacion;
+            return estacion; 
         }  
     }
 }
