@@ -3,7 +3,21 @@
 @{
     var estacion = Model.Estacion;
 }
- 
+
+
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="top-text header-text">
+                <h6>Actualizar el Registro</h6>
+                 <!--<h2>Registra el Bus</h2>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="text-center">
 <form method="POST">
     <input type="number" class="form-control d-none" id="id" name="id" placeholder="id" asp-for="@estacion.id" readonly>
