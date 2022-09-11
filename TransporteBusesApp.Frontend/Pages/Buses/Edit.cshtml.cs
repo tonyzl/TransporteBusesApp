@@ -16,9 +16,9 @@ namespace TransporteBusesApp.Frontend.Pages
         public Dominio.Buses Bus {get;set;}
  
         public EditBusModel(IRepositorioBuses repositorioBuses)
-       {
+        {
             this.repositorioBuses=repositorioBuses;
-       }
+        }  
 
         public IActionResult OnGet(int busId)
         {

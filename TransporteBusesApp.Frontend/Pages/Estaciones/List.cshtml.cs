@@ -12,19 +12,31 @@ namespace TransporteBusesApp.Frontend.Pages
     public class ListEstacionesModel : PageModel
     {
        
-    private readonly IRepositorioEstaciones repositorioEstaciones;
+        private readonly IRepositorioEstaciones repositorioEstaciones;
+        
+        [BindProperty]
+        public IEnumerable<Dominio.Estaciones> Estaciones {get;set;}
+        [BindProperty]
+        public Dominio.Estaciones Estacion {get;set;}
     
-    [BindProperty]
-    public IEnumerable<Dominio.Estaciones> Estaciones {get;set;}
- 
-    public ListEstacionesModel(IRepositorioEstaciones repositorioEstaciones)
-    {
-        this.repositorioEstaciones=repositorioEstaciones;
-    }
- 
-    public void OnGet()
-    {
-        Estaciones=repositorioEstaciones.GetAll();
-    }
+        public ListEstacionesModel(IRepositorioEstaciones repositorioEstaciones)
+        {
+            this.repositorioEstaciones=repositorioEstaciones;
+        }
+    
+        public void OnGet()
+        {
+            Estaciones=repositorioEstaciones.GetAll();
+        }
+
+        public IActionResult OnPost()
+        {
+            if(Estacion.id > 0)
+            {
+                this.repositorioEstaciones.Delete(Estacion.id);
+            }
+
+            return RedirectToPage("./List");
+        }
     }
 }

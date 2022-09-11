@@ -4,21 +4,28 @@
     var bus = Model.Bus;
 }
  
-
-
-<div class="card flex-row">
-  <img height="300" width="500" src="/images/buses_fotos/@bus.foto" class="card-img-left img-thumbnail"  alt="@bus.marca">
-  <div class="card-body">
-    <h5 class="card-title">Detalles del Bus</h5>
-    <p class="card-text">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"> <b>id: </b> @bus.id</li>
-        <li class="list-group-item"> <b>Marca: </b> @bus.marca</li>
-        <li class="list-group-item"> <b>Modelo: </b> @bus.modelo</li>
-        <li class="list-group-item"><b>Kilometraje: </b> @bus.kilometraje</li>
-        <li class="list-group-item"><b>Numero de asientos: </b> @bus.nro_asientos</li>
-        <li class="list-group-item"><b>Placa: </b> @bus.placa</li>
-      </ul>	
-    </p>
+<div class="page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="top-text header-text">
+          <div class="card flex-row">
+          <img height="300" width="500" src="/images/buses_fotos/@bus.foto" class="card-img-left img-thumbnail"  alt="@bus.marca">
+          <div class="card-body">
+            <h5 class="card-title">Detalles del Bus</h5>
+            <p class="card-text">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>id: </b> @bus.id</li>
+                <li class="list-group-item"><b>Marca: </b> @bus.marca</li>
+                <li class="list-group-item"><b>Modelo: </b> @bus.modelo</li>
+                <li class="list-group-item"><b>Kilometraje: </b> @bus.kilometraje</li>
+                <li class="list-group-item"><b>Numero de asientos: </b> @bus.nro_asientos</li>
+                <li class="list-group-item"><b>Placa: </b> @bus.placa</li>
+              </ul>	
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

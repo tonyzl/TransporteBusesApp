@@ -9,7 +9,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
     {
         List<Estaciones> estaciones;
  
-    public RepositorioEstaciones()
+        public RepositorioEstaciones()
         {
             estaciones= new List<Estaciones>()
             {
@@ -19,10 +19,16 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             };
         }
 
-        public Estaciones Create(Estaciones estacion)
+        public Estaciones Create(Estaciones newEstacion)
         {
-            estaciones.Add(estacion);
-            return estaciones.Last(); //se retorna la estacion creada
+            if(estaciones.Count > 0){
+                newEstacion.id = estaciones.Max(r => r.id) +1; 
+            } else {
+               newEstacion.id = 1; 
+            }
+
+            estaciones.Add(newEstacion);
+            return newEstacion;
         }
 
         public IEnumerable<Estaciones> GetAll()
@@ -43,8 +49,14 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
                 estacion.coord_y = newEstacion.coord_y;
                 estacion.tipo = newEstacion.tipo;
             }
-        return estacion;
-        }
-        
+            return estacion;
+        } 
+
+        public Estaciones Delete(int id)
+        {
+            var estacion = estaciones.SingleOrDefault(b => b.id == id);
+            estaciones.Remove(estacion);
+            return estacion;
+        }  
     }
 }

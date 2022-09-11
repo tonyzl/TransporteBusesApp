@@ -8,9 +8,10 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
     public interface IRepositorioEstaciones
     {
-         public IEnumerable<Dominio.Estaciones> GetAll();
+        public IEnumerable<Dominio.Estaciones> GetAll();
         public Dominio.Estaciones GetWithId(int id);
         public Dominio.Estaciones Update(Dominio.Estaciones newbus);
         public Dominio.Estaciones Create(Dominio.Estaciones bus);
+        public Dominio.Estaciones Delete(int id); 
     }
 }

@@ -8,20 +8,19 @@ using TransporteBusesApp.Dominio;
 using TransporteBusesApp.Persistencia.AppRepositorios;
 
 namespace TransporteBusesApp.Frontend.Pages
-{
-    
+{    
     public class FormBusesModel : PageModel
-    {
-       
+    {       
         private readonly IRepositorioBuses repositoriobuses; 
         
         [BindProperty]
         public Dominio.Buses bus {get; set;}
 
-         public FormBusesModel(IRepositorioBuses repositoriobuses)
+        public FormBusesModel(IRepositorioBuses repositoriobuses)
         {
             this.repositoriobuses = repositoriobuses;
         }
+        
         public void OnGet()
         {
  
