@@ -1,6 +1,8 @@
-function Confirmacion(event) {
+function Confirmacion(id, marca) {
+    let _id = id;
+    let _marca = marca;
     Swal.fire({
-        title: 'Esta seguro?',
+        title: `Esta seguro de eliminar el auto ${_marca} `,
         text: "El cambio no se puede revertir!",
         icon: 'error',
         showCancelButton: true,

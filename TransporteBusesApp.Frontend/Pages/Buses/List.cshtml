@@ -50,8 +50,9 @@
                         <a class="btn btn-info " asp-page="/Buses/Edit" asp-route-busId="@item.id">Editar</a>
                         
                         <form asp-route-id="@item.id" asp-page-handler="Delete"  >
-                        <button class="btn btn-danger"  onclick="return Confirmacion(this)" >Eliminar</button>
+                        <button class="btn btn-danger"  onclick="Confirmacion('@item.id','@item.marca')" >Eliminar</button>
                         </form>
+
                         
                     </td>
                 </tr>
