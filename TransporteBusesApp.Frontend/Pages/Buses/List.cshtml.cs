@@ -30,16 +30,12 @@ namespace TransporteBusesApp.Frontend.Pages
     }
     public IActionResult OnPostDelete(int id)
         {
-            if(bus.id > 0)
-            {
-                if(this.repositorioBuses.Delete(bus.id)){
-                    return Page();
-                }else{
-                    return NotFound();
-                }
-            }
 
+
+            this.repositorioBuses.Delete(bus.id);
             return RedirectToPage("./List");
         }
+
+            
     }
 }

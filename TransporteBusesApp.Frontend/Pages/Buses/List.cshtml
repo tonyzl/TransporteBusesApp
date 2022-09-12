@@ -20,6 +20,7 @@
     <div class="col-3">
         <a asp-page="/Buses/Create" class="btn btn-outline-info">Crear Bus</a>
     </div>
+    
     <table class="table table-striped table-bordered col-12 mt-4">
     <thead>
         <tr>
@@ -44,10 +45,14 @@
                     <td>@Html.DisplayFor(m =>item.kilometraje)</td>
                     <td>@Html.DisplayFor(m =>item.nro_asientos)</td>
                     <td>@Html.DisplayFor(m =>item.placa)</td>
-                    <td>
+                    <td >
                         <a class="btn btn-success" asp-page="/Buses/Details" asp-route-busId="@item.id">Ver</a>
-                        <a class="btn btn-info" asp-page="/Buses/Edit" asp-route-busId="@item.id">Editar</a>
-                        <a class="btn btn-danger">Eliminar</a>
+                        <a class="btn btn-info " asp-page="/Buses/Edit" asp-route-busId="@item.id">Editar</a>
+                        
+                        <form asp-route-id="@item.id" asp-page-handler="Delete"  >
+                        <button class="btn btn-danger"  onclick="return Confirmacion(this)" >Eliminar</button>
+                        </form>
+                        
                     </td>
                 </tr>
             }
@@ -63,5 +68,18 @@
         }
     </tbody>
 </table>
-    
+
 </div>
+
+@section scripts{
+
+<script type="text/javascript "src="~/js/notificaciones.js">
+    
+</script>
+}
+        
+        
+    
+
+        
+
