@@ -32,10 +32,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             return newBus;
         }
 
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public IEnumerable<Buses> GetAll()
         {            
@@ -57,6 +54,14 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
                 bus.placa = newBus.placa;
             }
             return bus;
-        }       
+        } 
+
+        public Buses Delete(int id)
+        {
+            var bus = buses.SingleOrDefault(b => b.id == id);
+           buses.Remove(bus);
+            return bus; 
+        } 
+
     }
 }
