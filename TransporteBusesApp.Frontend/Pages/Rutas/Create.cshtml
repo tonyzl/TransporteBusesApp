@@ -1,5 +1,6 @@
 @page
 @model TransporteBusesApp.Frontend.Pages.FormRutasModel
+@using TransporteBusesApp.Dominio;
 @{
 }
 <div class="page-heading">
@@ -19,21 +20,24 @@
         <div class="form-group row">
         <label for="origen" class="col-form-label col-2 font-weight-bold">Origen:</label>
         <div class="col-10">
-        <input type="text" class="form-control" id="origen" name="origen" required placeholder="Origen">
-        </div>
-        </div>
+        <select asp-for="ruta.origen.id" asp-items="@Model.selectestaciones" class="form-control">
+          <option>seleccione las estacion de origen</option>
+        </select>
+        </div></div>
         <div class="form-group row">
         <label for="destino" class="col-form-label col-2 font-weight-bold">Destino:</label>
         <div class="col-10">
-        <input type="text" class="form-control" id="destino" name="destino" required placeholder="Destino">
-        </div>
-        </div>
+        <select asp-for="ruta.destino.id" asp-items="@Model.selectestaciones" class="form-control">
+          <option>seleccione la estacion de destino</option>
+        </select>
+        </div></div>
         <div class="form-group row">
         <label for="tiempo_estimado" class="col-form-label col-2 font-weight-bold">Tiempo Estimado:</label>
         <div class="col-10">
-        <input type="text" class="form-control" id="tiempo_estimado" name="tiempo_estimado" required placeholder="Tiempo Estimado">
+        <input type="text" class="form-control" asp-for="ruta.tiempo_estimado" required placeholder="Tiempo Estimado">
         </div>
         </div>
+        
         <hr>
         <button type="submit" class="btn btn-success">Crear Ruta</button>
     </form>

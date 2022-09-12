@@ -16,6 +16,9 @@ namespace TransporteBusesApp.Frontend.Pages
         [BindProperty]
         public IEnumerable<Dominio.Rutas> rutas { get; set; }
 
+        [BindProperty]
+        public Dominio.Rutas ruta { get; set; }
+
         public ListRutasModel(IRepositorioRutas repositorioRutas)
         {
             this.repositorioRutas = repositorioRutas;
@@ -24,5 +27,14 @@ namespace TransporteBusesApp.Frontend.Pages
         {
             rutas = repositorioRutas.GetAll();
         }
+
+        public IActionResult OnPostDelete(int id)
+        {
+            this.repositorioRutas.Delete(ruta.id);
+            return RedirectToPage("./List");
+        }
+        
+            
+        }
+
     }
-}

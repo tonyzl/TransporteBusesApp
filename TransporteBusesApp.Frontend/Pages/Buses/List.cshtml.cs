@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TransporteBusesApp.Persistencia.AppRepositorios;
 using TransporteBusesApp.Dominio;
- 
+
 namespace TransporteBusesApp.Frontend.Pages
 {
     public class ListBusModel : PageModel
     {
-       
+
         private readonly IRepositorioBuses repositorioBuses;
         [BindProperty]
         public IEnumerable<Dominio.Buses> Buses {get;set;}

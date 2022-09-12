@@ -52,11 +52,18 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             return estacion;
         } 
 
-        public Estaciones Delete(int id)
+        public bool Delete(int id)
         {
-            var estacion = estaciones.SingleOrDefault(b => b.id == id);
-            estaciones.Remove(estacion);
-            return estacion; 
+           Estaciones estacion = estaciones.FirstOrDefault(e => e.id == id);
+
+           if(estacion != null){
+
+            return estaciones.Remove(estacion);
+
+            }else{
+                
+                return false;
+            }
         }  
     }
 }
