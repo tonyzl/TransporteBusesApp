@@ -30,17 +30,11 @@ namespace TransporteBusesApp.Frontend.Pages
 
         public IActionResult OnPostDelete(int id)
         {
-            if (this.repositorioRutas.Delete(ruta.id))
-            {
-                return Page();
-            }
-            else
-            {
-                return NotFound();
-            }
+            this.repositorioRutas.Delete(ruta.id);
+            return RedirectToPage("./List");
+        }
         
             
         }
 
     }
-}

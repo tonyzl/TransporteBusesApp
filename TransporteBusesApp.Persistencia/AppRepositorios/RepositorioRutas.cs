@@ -31,9 +31,21 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         /// <returns>Retorna el ultimo valor almacenadoo</returns>
         public Rutas Create(Rutas ruta)
         {
-            //se agrega la ruta
+            Estaciones origen = repositorioEstaciones.GetWithId(ruta.origen.id);
+            Estaciones destino = repositorioEstaciones.GetWithId(ruta.destino.id);
+            ruta.origen = origen;
+            ruta.destino = destino;
+            if(rutas.Count > 0){
+                ruta.id = rutas.Max(r => r.id) +1; 
+            } else {
+               ruta.id = 1; 
+            }
+
             rutas.Add(ruta);
             return rutas.Last();
+            //se agrega la ruta
+
+            
         }
 
         public bool Delete(int id)

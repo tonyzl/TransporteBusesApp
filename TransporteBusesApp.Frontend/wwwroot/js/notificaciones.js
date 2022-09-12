@@ -1,10 +1,23 @@
-function Confirmacion(id, marca) {
+function Alerta_Confirmacion(id, nombre,tipo) {
     let _id = id;
-    let _marca = marca;
+    let _nombre = nombre;
+    let _tipo = tipo
+    var _title = ""
+    switch (_tipo) {
+        case "bus":
+            _title = `Esta seguro de eliminar el auto ${_nombre} `;
+            break;
+        case "estacion":
+            _title = `Esta seguro de eliminar la estacion ${_nombre} `;
+            break;
+        case "ruta":
+            _title = `Esta seguro de eliminar la ruta ${_id} `;
+            break;
+    }
     Swal.fire({
-        title: `Esta seguro de eliminar el auto ${_marca} `,
+        title: _title,
         text: "El cambio no se puede revertir!",
-        icon: 'error',
+        icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#00C2F8',

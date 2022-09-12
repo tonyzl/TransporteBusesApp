@@ -45,13 +45,18 @@
                     <td>@Html.DisplayFor(m =>item.kilometraje)</td>
                     <td>@Html.DisplayFor(m =>item.nro_asientos)</td>
                     <td>@Html.DisplayFor(m =>item.placa)</td>
-                    <td >
-                        <a class="btn btn-success" asp-page="/Buses/Details" asp-route-busId="@item.id">Ver</a>
+                    <td class="btn-group" role="group">
+                        <div class="mr-1">
+                        <a class="btn btn-success " asp-page="/Buses/Details" asp-route-busId="@item.id">Ver</a>
+                        </div>
+                        <div class="mr-1">
                         <a class="btn btn-info " asp-page="/Buses/Edit" asp-route-busId="@item.id">Editar</a>
-                        
+                        </div>
+                        <div class="mr-1">
                         <form asp-route-id="@item.id" asp-page-handler="Delete"  >
-                        <button class="btn btn-danger"  onclick="Confirmacion('@item.id','@item.marca')" >Eliminar</button>
+                        <button class="btn btn-danger"  onclick="return Alerta_Confirmacion('@item.id','@item.marca','bus')" >Eliminar</button>
                         </form>
+                        </div>
 
                         
                     </td>
