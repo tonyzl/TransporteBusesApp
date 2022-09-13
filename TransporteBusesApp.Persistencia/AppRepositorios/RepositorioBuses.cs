@@ -8,8 +8,8 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
     public class RepositorioBuses : IRepositorioBuses
     {
         List<Buses> buses;
-        AppTransportesdbContext _db;
-        public RepositorioBuses(AppTransportesdbContext db)
+        AppdbContext _db;
+        public RepositorioBuses(AppdbContext db)
         {
             _db = db;
             

@@ -31,7 +31,7 @@ namespace TransporteBusesApp.Frontend
                 services.AddScoped<IRepositorioEstaciones, RepositorioEstaciones>();
                 services.AddScoped<IRepositorioBuses, RepositorioBuses>();
                 services.AddScoped<IRepositorioRutas, RepositorioRutas>();
-                services.AddDbContext<AppTransportesdbContext>();
+                services.AddDbContext<AppdbContext>();
 
         }
 

@@ -10,19 +10,24 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
     public class RepositorioRutas : IRepositorioRutas
     {
         List<Rutas> rutas;
-        private IRepositorioEstaciones repositorioEstaciones = new RepositorioEstaciones();
+        private IRepositorioEstaciones _repositorioEstaciones;
 
-        private readonly AppContext _appContext = new AppContext();
-
-        public RepositorioRutas()
+        private readonly AppdbContext _appContext;
+        public RepositorioRutas(AppdbContext appContext)
         {
-            Estaciones Estacion1 = repositorioEstaciones.GetWithId(1);
-            Estaciones Estacion2 = repositorioEstaciones.GetWithId(2);
-            Estaciones Estacion3 = repositorioEstaciones.GetWithId(3);
+            _appContext = appContext;
+            
+        }
+        public RepositorioRutas(IRepositorioEstaciones repositorioEstaciones)
+        {
+            _repositorioEstaciones = repositorioEstaciones;
+            Estaciones Estacion1 = _repositorioEstaciones.GetWithId(1);
+            Estaciones Estacion2 = _repositorioEstaciones.GetWithId(2);
+            Estaciones Estacion3 = _repositorioEstaciones.GetWithId(3);
             rutas = new List<Rutas>
             {
                 
-                new Rutas{id=1, origen = repositorioEstaciones.GetWithId(1),destino = repositorioEstaciones.GetWithId(3), tiempo_estimado= 45},
+                new Rutas{id=1, origen = _repositorioEstaciones.GetWithId(1),destino = _repositorioEstaciones.GetWithId(3), tiempo_estimado= 45},
                 new Rutas{id=2, origen = Estacion3,destino = Estacion2, tiempo_estimado= 90},
                 new Rutas{id=3, origen = Estacion2,destino = Estacion1, tiempo_estimado= 30},
                 new Rutas{id=4, origen = Estacion3,destino = Estacion1, tiempo_estimado= 60}
@@ -35,8 +40,8 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         /// <returns>Retorna el ultimo valor almacenadoo</returns>
         public Rutas Create(Rutas ruta)
         {
-            Estaciones origen = repositorioEstaciones.GetWithId(ruta.origen.id);
-            Estaciones destino = repositorioEstaciones.GetWithId(ruta.destino.id);
+            Estaciones origen = _repositorioEstaciones.GetWithId(ruta.origen.id);
+            Estaciones destino = _repositorioEstaciones.GetWithId(ruta.destino.id);
             ruta.origen = origen;
             ruta.destino = destino;
             if(rutas.Count > 0){

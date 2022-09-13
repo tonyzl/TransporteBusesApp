@@ -7,8 +7,11 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
     public class RepositorioEstaciones :IRepositorioEstaciones
     {
-        private readonly AppContext _appContext = new AppContext();         
-
+        private readonly AppdbContext _appContext;
+        public RepositorioEstaciones(AppdbContext appcontext)
+        {
+            _appContext = appcontext;
+        }
         public IEnumerable<Estaciones> GetAll()
         {
             return _appContext.Estaciones;
