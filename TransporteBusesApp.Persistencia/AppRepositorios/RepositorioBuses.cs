@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using TransporteBusesApp.Dominio;
 using System.Linq;
 using System;
- 
+using System.IO;
+
 namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
     public class RepositorioBuses : IRepositorioBuses
     {
-        
+        ArchivoFoto _archivofoto;
         AppdbContext _appdbContext;
         public RepositorioBuses(AppdbContext appdbContext)
         {
@@ -17,7 +18,13 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 
         public Buses Create(Buses newBus)
         {
+           /* _archivofoto = newBus.foto;
+
             
+            string path = Path.Combine(Directory.GetCurrentDirectory(), _archivofoto.ToString()); //se define la ruta del archivo y el nombre
+            using (var streamfile = new FileStream(path,FileMode.Create)){
+                newBus.foto.CopyTo(streamfile);
+            }*/
             var busagregado =_appdbContext.Buses.Add(newBus);
             _appdbContext.SaveChanges();
             return busagregado.Entity;
