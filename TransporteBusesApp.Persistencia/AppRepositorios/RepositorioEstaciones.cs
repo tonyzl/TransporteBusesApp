@@ -7,63 +7,51 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
     public class RepositorioEstaciones :IRepositorioEstaciones
     {
-        List<Estaciones> estaciones;
- 
-        public RepositorioEstaciones()
+        private readonly AppContext _appContext = new AppContext();         
+
+        public IEnumerable<Estaciones> GetAll()
         {
-            estaciones= new List<Estaciones>()
-            {
-                new Estaciones{id=1,nombre="Centro",direccion= "cra 90",coord_x= "14.4545",coord_y= "4.1254545",tipo= "Principal"},
-                new Estaciones{id=2,nombre="Estadio",direccion= "calle 70",coord_x= "9.05454",coord_y= "16.14587",tipo= "Secundaria"},
-                new Estaciones{id=3,nombre="Terminal",direccion= "Carrera 54",coord_x= "15.457878",coord_y= "24.457878",tipo= "Principal"}
-            };
+            return _appContext.Estaciones;
+        }
+ 
+        public Estaciones GetWithId(int id){
+            return _appContext.Estaciones.Find(id);
         }
 
         public Estaciones Create(Estaciones newEstacion)
         {
-            if(estaciones.Count > 0){
-                newEstacion.id = estaciones.Max(r => r.id) +1; 
-            } else {
-               newEstacion.id = 1; 
-            }
-
-            estaciones.Add(newEstacion);
-            return newEstacion;
+            var addEstacion= _appContext.Estaciones.Add(newEstacion);
+            _appContext.SaveChanges();
+            return addEstacion.Entity;
         }
 
-        public IEnumerable<Estaciones> GetAll()
+        public Estaciones Update(Estaciones newEstacion)
         {
-            return estaciones;
-        }
- 
-        public Estaciones GetWithId(int id){
-            return estaciones.SingleOrDefault(e => e.id == id);
-        }
+            var estacion = _appContext.Estaciones.Find(newEstacion.id);
 
-        public Estaciones Update(Estaciones newEstacion){
-            var estacion= estaciones.SingleOrDefault(b => b.id == newEstacion.id);
             if(estacion != null){
                 estacion.nombre = newEstacion.nombre;
                 estacion.direccion = newEstacion.direccion;
                 estacion.coord_x = newEstacion.coord_x;
                 estacion.coord_y = newEstacion.coord_y;
                 estacion.tipo = newEstacion.tipo;
+                //Guardar en base de datos
+                 _appContext.SaveChanges();
             }
+            
             return estacion;
         } 
 
         public bool Delete(int id)
         {
-           Estaciones estacion = estaciones.FirstOrDefault(e => e.id == id);
-
-           if(estacion != null){
-
-            return estaciones.Remove(estacion);
-
-            }else{
-                
+            var estacion = _appContext.Estaciones.Find(id);
+            if (estacion == null)
                 return false;
-            }
+                
+            _appContext.Estaciones.Remove(estacion);
+            _appContext.SaveChanges();
+
+            return true;
         }  
     }
 }

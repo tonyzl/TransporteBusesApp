@@ -9,7 +9,7 @@ namespace TransporteBusesApp.Persistencia
         public DbSet<Rutas> Rutas { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
             if(!optionsBuilder.IsConfigured){
-                optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = dbTransporteBuses");
+                optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = DBTransportes");
             }
         }
     }

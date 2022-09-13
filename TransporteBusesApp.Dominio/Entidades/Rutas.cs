@@ -7,11 +7,12 @@ namespace TransporteBusesApp.Dominio{
         [Required,Key]
         [Display(Name="Id")]
         public int id {get; set;}
-        [Required, ForeignKey("Estaciones")]
+        
+        [Required, ForeignKey("origenid")]
         [Display(Name="Origen")]
         public virtual Estaciones origen {get; set;} 
 
-        [Required, ForeignKey("Estaciones")]
+        [Required, ForeignKey("destinoid")]
         [Display(Name="Destino")]
         public virtual Estaciones destino {get; set;} 
 

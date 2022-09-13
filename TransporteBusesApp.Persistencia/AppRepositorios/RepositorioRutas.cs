@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TransporteBusesApp.Dominio;
+using Microsoft.EntityFrameworkCore;
 
 namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
@@ -10,6 +11,9 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
     {
         List<Rutas> rutas;
         private IRepositorioEstaciones repositorioEstaciones = new RepositorioEstaciones();
+
+        private readonly AppContext _appContext = new AppContext();
+
         public RepositorioRutas()
         {
             Estaciones Estacion1 = repositorioEstaciones.GetWithId(1);
@@ -64,7 +68,10 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 
         public IEnumerable<Rutas> GetAll()
         {
-            return rutas;
+           return _appContext.Rutas
+                .Include(u => u.origen)
+                .Include(u => u.destino);
+
         }
         /// <summary>
         ///   se obtiene la ruta con el id  
@@ -73,7 +80,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         /// <returns>Retorna un objeto Ruta encontrado con el Id</returns>
         public Rutas GetWithId(int id)
         {
-            return rutas.FirstOrDefault(ruta => ruta.id == id);
+             return _appContext.Rutas.Find(id);
         }
 
         public Rutas Update(Rutas newruta)

@@ -17,7 +17,7 @@ namespace TransporteBusesApp.Persistencia.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("TransporteBusesApp.Dominio.Buses", b =>
                 {
@@ -30,6 +30,9 @@ namespace TransporteBusesApp.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("marca")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("foto")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("modelo")
