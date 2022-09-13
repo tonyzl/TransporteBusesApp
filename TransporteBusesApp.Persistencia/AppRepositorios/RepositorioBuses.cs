@@ -8,16 +8,11 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
     public class RepositorioBuses : IRepositorioBuses
     {
         List<Buses> buses;
- 
-        public RepositorioBuses()
+        AppTransportesdbContext _db;
+        public RepositorioBuses(AppTransportesdbContext db)
         {
-            buses= new List<Buses>()
-            {
-                new Buses{id=1,marca="Audi",foto= "audiPOP678.jpg",modelo= 2020,kilometraje= 100000,nro_asientos= 4,placa= "POP678"},
-                new Buses{id=2,marca="Toyota",foto= "mazdaYUH859.png",modelo= 2021,kilometraje= 90000,nro_asientos= 16,placa= "OIU859"},
-                new Buses{id=3,marca="Mazda",foto= "toyotaOIU859.jpeg",modelo= 2000,kilometraje= 150000,nro_asientos= 24,placa= "YUH859"}
- 
-            };
+            _db = db;
+            
         }
 
         public Buses Create(Buses newBus)
@@ -47,8 +42,8 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         }
 
         public IEnumerable<Buses> GetAll()
-        {            
-            return buses;
+        {
+            return _db.Buses.ToList();
         }
  
         public Buses GetWithId(int id){
