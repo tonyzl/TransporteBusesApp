@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TransporteBusesApp.Persistencia;
 
 namespace TransporteBusesApp.Persistencia.Migrations
 {
-    [DbContext(typeof(AppContext))]
-    [Migration("20220823130417_MigraInicial00")]
-    partial class MigraInicial00
+    [DbContext(typeof(AppTransportesdbContext))]
+    partial class AppTransportesdbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,10 +26,14 @@ namespace TransporteBusesApp.Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("foto")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("kilometraje")
                         .HasColumnType("int");
 
                     b.Property<string>("marca")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("modelo")
@@ -41,6 +43,7 @@ namespace TransporteBusesApp.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("placa")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -55,19 +58,25 @@ namespace TransporteBusesApp.Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("coord_x")
-                        .HasColumnType("int");
+                    b.Property<string>("coord_x")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("coord_y")
-                        .HasColumnType("int");
+                    b.Property<string>("coord_y")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("direccion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nombre")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("tipo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -82,10 +91,10 @@ namespace TransporteBusesApp.Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("destinoid")
+                    b.Property<int?>("Destinoid")
                         .HasColumnType("int");
 
-                    b.Property<int?>("origenid")
+                    b.Property<int?>("Origenid")
                         .HasColumnType("int");
 
                     b.Property<int>("tiempo_estimado")
@@ -93,9 +102,9 @@ namespace TransporteBusesApp.Persistencia.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("destinoid");
+                    b.HasIndex("Destinoid");
 
-                    b.HasIndex("origenid");
+                    b.HasIndex("Origenid");
 
                     b.ToTable("Rutas");
                 });
@@ -104,11 +113,11 @@ namespace TransporteBusesApp.Persistencia.Migrations
                 {
                     b.HasOne("TransporteBusesApp.Dominio.Estaciones", "destino")
                         .WithMany()
-                        .HasForeignKey("destinoid");
+                        .HasForeignKey("Destinoid");
 
                     b.HasOne("TransporteBusesApp.Dominio.Estaciones", "origen")
                         .WithMany()
-                        .HasForeignKey("origenid");
+                        .HasForeignKey("Origenid");
 
                     b.Navigation("destino");
 

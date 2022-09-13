@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TransporteBusesApp.Persistencia;
 using TransporteBusesApp.Persistencia.AppRepositorios;
 
 namespace TransporteBusesApp.Frontend
@@ -26,9 +28,10 @@ namespace TransporteBusesApp.Frontend
         {
             services.AddRazorPages()
                 .AddRazorRuntimeCompilation();
-                services.AddSingleton<IRepositorioEstaciones, RepositorioEstaciones>();
-                services.AddSingleton<IRepositorioBuses, RepositorioBuses>();
-                services.AddSingleton<IRepositorioRutas, RepositorioRutas>();
+                services.AddScoped<IRepositorioEstaciones, RepositorioEstaciones>();
+                services.AddScoped<IRepositorioBuses, RepositorioBuses>();
+                services.AddScoped<IRepositorioRutas, RepositorioRutas>();
+                services.AddDbContext<AppTransportesdbContext>();
 
         }
 

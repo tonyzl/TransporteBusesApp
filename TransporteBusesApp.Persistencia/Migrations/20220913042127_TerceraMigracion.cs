@@ -2,7 +2,7 @@
 
 namespace TransporteBusesApp.Persistencia.Migrations
 {
-    public partial class MigraInicial00 : Migration
+    public partial class TerceraMigracion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,11 +12,12 @@ namespace TransporteBusesApp.Persistencia.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    marca = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    marca = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     modelo = table.Column<int>(type: "int", nullable: false),
                     kilometraje = table.Column<int>(type: "int", nullable: false),
                     nro_asientos = table.Column<int>(type: "int", nullable: false),
-                    placa = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    placa = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    foto = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -29,11 +30,11 @@ namespace TransporteBusesApp.Persistencia.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    direccion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    coord_x = table.Column<int>(type: "int", nullable: false),
-                    coord_y = table.Column<int>(type: "int", nullable: false),
-                    tipo = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    nombre = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    coord_x = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    coord_y = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tipo = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,36 +47,36 @@ namespace TransporteBusesApp.Persistencia.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    origenid = table.Column<int>(type: "int", nullable: true),
-                    destinoid = table.Column<int>(type: "int", nullable: true),
+                    Origenid = table.Column<int>(type: "int", nullable: true),
+                    Destinoid = table.Column<int>(type: "int", nullable: true),
                     tiempo_estimado = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Rutas", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Rutas_Estaciones_destinoid",
-                        column: x => x.destinoid,
+                        name: "FK_Rutas_Estaciones_Destinoid",
+                        column: x => x.Destinoid,
                         principalTable: "Estaciones",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Rutas_Estaciones_origenid",
-                        column: x => x.origenid,
+                        name: "FK_Rutas_Estaciones_Origenid",
+                        column: x => x.Origenid,
                         principalTable: "Estaciones",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rutas_destinoid",
+                name: "IX_Rutas_Destinoid",
                 table: "Rutas",
-                column: "destinoid");
+                column: "Destinoid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rutas_origenid",
+                name: "IX_Rutas_Origenid",
                 table: "Rutas",
-                column: "origenid");
+                column: "Origenid");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
