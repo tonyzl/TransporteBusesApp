@@ -1,5 +1,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
 namespace TransporteBusesApp.Dominio{
     
     public class Buses
@@ -30,7 +35,15 @@ namespace TransporteBusesApp.Dominio{
 
         //[Required]
         [Display(Name="Foto")]         
-        public string foto {get;set;}            
+        public ArchivoFoto foto {get;set;}            
            
     }
+
+    //********clase archivo**********
+    public class ArchivoFoto{
+        string rutaArchivo { get; set; }
+        IFormFile Archivo { get; set; }
+    }
+
+   
 }
