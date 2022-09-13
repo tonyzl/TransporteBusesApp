@@ -16,11 +16,11 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         public RepositorioRutas(AppdbContext appContext)
         {
             _appContext = appContext;
-            
+            _repositorioEstaciones = new RepositorioEstaciones(appContext);
         }
-        public RepositorioRutas(IRepositorioEstaciones repositorioEstaciones)
+        public RepositorioRutas()
         {
-            _repositorioEstaciones = repositorioEstaciones;
+            
             Estaciones Estacion1 = _repositorioEstaciones.GetWithId(1);
             Estaciones Estacion2 = _repositorioEstaciones.GetWithId(2);
             Estaciones Estacion3 = _repositorioEstaciones.GetWithId(3);

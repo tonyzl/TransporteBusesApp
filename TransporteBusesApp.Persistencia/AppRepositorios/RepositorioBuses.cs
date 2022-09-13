@@ -7,33 +7,35 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
     public class RepositorioBuses : IRepositorioBuses
     {
-        List<Buses> buses;
-        AppdbContext _db;
-        public RepositorioBuses(AppdbContext db)
+        
+        AppdbContext _appdbContext;
+        public RepositorioBuses(AppdbContext appdbContext)
         {
-            _db = db;
+            _appdbContext = appdbContext;
             
         }
 
         public Buses Create(Buses newBus)
         {
-            if(buses.Count > 0){
-                newBus.id = buses.Max(r => r.id) +1; 
-            } else {
-               newBus.id = 1; 
-            }
-
-            buses.Add(newBus);
-            return newBus;
+            
+            var busagregado =_appdbContext.Buses.Add(newBus);
+            _appdbContext.SaveChanges();
+            return busagregado.Entity;
         }
 
         public bool Delete(int id)
         {
-           Buses bus = buses.FirstOrDefault(b => b.id == id);
+           Buses bus = _appdbContext.Buses.FirstOrDefault(b => b.id == id);
 
            if(bus != null){
 
-            return buses.Remove(bus);
+            var buseliminado = _appdbContext.Buses.Remove(bus);
+                _appdbContext.SaveChanges();
+                if (buseliminado != null){
+                    return true;
+                }else{
+                    return false;
+                }
 
             }else{
                 
@@ -43,15 +45,16 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 
         public IEnumerable<Buses> GetAll()
         {
-            return _db.Buses.ToList();
+            return _appdbContext.Buses.ToList();
         }
  
         public Buses GetWithId(int id){
-            return buses.SingleOrDefault(b => b.id == id);
+            return _appdbContext.Buses.FirstOrDefault(b => b.id == id);
         }
 
         public Buses Update(Buses newBus){
-            var bus= buses.SingleOrDefault(b => b.id == newBus.id);
+            var bus= _appdbContext.Buses.FirstOrDefault(b => b.id == newBus.id);
+            
             if(bus != null){
                 
                 bus.marca = newBus.marca;
@@ -59,6 +62,8 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
                 bus.kilometraje = newBus.kilometraje;
                 bus.nro_asientos = newBus.nro_asientos;
                 bus.placa = newBus.placa;
+                var busactualizado = _appdbContext.Buses.Update(bus);
+                _appdbContext.SaveChanges();
             }
             return bus;
         } 
