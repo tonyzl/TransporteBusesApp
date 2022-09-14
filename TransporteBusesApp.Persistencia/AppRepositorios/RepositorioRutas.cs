@@ -40,12 +40,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         /// <returns>Retorna el ultimo valor almacenadoo</returns>
         public Rutas Create(Rutas ruta)
         {
-            Estaciones origen = _repositorioEstaciones.GetWithId(ruta.origen.id);
-            Estaciones destino = _repositorioEstaciones.GetWithId(ruta.destino.id);
-            ruta.origen = origen;
-            ruta.destino = destino;
-            
-
+        
             var rutainsertada = _appContext.Rutas.Add(ruta);
             return rutainsertada.Entity;
             //se agrega la ruta
@@ -69,9 +64,11 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 
         public IEnumerable<Rutas> GetAll()
         {
-           return _appContext.Rutas
+            rutas = _appContext.Rutas
                 .Include(u => u.origen)
-                .Include(u => u.destino);
+                .Include(u => u.destino).ToList();
+
+            return rutas;
 
         }
         /// <summary>
@@ -81,6 +78,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         /// <returns>Retorna un objeto Ruta encontrado con el Id</returns>
         public Rutas GetWithId(int id)
         {
+
              return _appContext.Rutas.Find(id);
         }
 

@@ -14,6 +14,7 @@ namespace TransporteBusesApp.Frontend.Pages
 {
     public class FormRutasModel : PageModel
     {   
+       
         [BindProperty]
         public Dominio.Rutas ruta { get; set; }
         List<Dominio.Estaciones> estaciones;
@@ -39,9 +40,13 @@ namespace TransporteBusesApp.Frontend.Pages
         
         
 
-        public IActionResult OnPost(Dominio.Rutas ruta){
+        public IActionResult OnPost(){
+            
+            if(ModelState.IsValid){
             this.repositorioRutas.Create(ruta);
             return RedirectToPage("./List");
+            }
+            return Page();
         }
     }
 }
