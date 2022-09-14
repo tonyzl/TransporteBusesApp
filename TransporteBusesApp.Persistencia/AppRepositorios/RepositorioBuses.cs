@@ -8,7 +8,6 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
     public class RepositorioBuses : IRepositorioBuses
     {
-        ArchivoFoto _archivofoto;
         AppdbContext _appdbContext;
         public RepositorioBuses(AppdbContext appdbContext)
         {

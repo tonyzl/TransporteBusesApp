@@ -7,7 +7,7 @@ namespace TransporteBusesApp.Dominio{
         [Display(Name="Id")]
         public int id {get;set;} 
 
-        [Required, StringLength(10,  MinimumLength = 5, ErrorMessage = "Mínimo 5 caracteres")]
+        [Required, StringLength(40,  MinimumLength =3, ErrorMessage = "Mínimo 5 caracteres")]
         [Display(Name="Nombre")]
         public string nombre {get;set;}  
 

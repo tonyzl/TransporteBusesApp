@@ -42,11 +42,8 @@
                         <input class="form-control col-sm-10" asp-for="bus.placa" required placeholder="Placa">
                     </div>
                     <div class="form-group row">
-                        <label asp-for="bus.foto" class="form-label col-sm-2">Imagen:</label>
-                        <input type="file" class="form-control col-sm-10" asp-for="archivoFoto" required placeholder="upload image">
-                    </div>
-                    <div class="col-2">
-                        <button type="submit" class="btn btn-success ">Crear Bus</button>
+                        <label asp-for="bus.foto" class="form-label col-sm-2">Ruta Foto:</label>
+                        <input class="form-control col-sm-10" asp-for="bus.foto" required placeholder="Ingrese la URL de la Foto">
                     </div>
                 </form>
             </div>
