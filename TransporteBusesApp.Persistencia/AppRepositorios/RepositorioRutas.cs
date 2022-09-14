@@ -20,7 +20,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         }
         public RepositorioRutas()
         {
-            
+            /*
             Estaciones Estacion1 = _repositorioEstaciones.GetWithId(1);
             Estaciones Estacion2 = _repositorioEstaciones.GetWithId(2);
             Estaciones Estacion3 = _repositorioEstaciones.GetWithId(3);
@@ -31,7 +31,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
                 new Rutas{id=2, origen = Estacion3,destino = Estacion2, tiempo_estimado= 90},
                 new Rutas{id=3, origen = Estacion2,destino = Estacion1, tiempo_estimado= 30},
                 new Rutas{id=4, origen = Estacion3,destino = Estacion1, tiempo_estimado= 60}
-            };
+            };*/
         }
         /// <summary>
         /// Este metodo almacena una Ruta en la base de datos
@@ -44,17 +44,13 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             Estaciones destino = _repositorioEstaciones.GetWithId(ruta.destino.id);
             ruta.origen = origen;
             ruta.destino = destino;
-            if(rutas.Count > 0){
-                ruta.id = rutas.Max(r => r.id) +1; 
-            } else {
-               ruta.id = 1; 
-            }
+            
 
-            rutas.Add(ruta);
-            return rutas.Last();
+            var rutainsertada = _appContext.Rutas.Add(ruta);
+            return rutainsertada.Entity;
             //se agrega la ruta
 
-            
+
         }
 
         public bool Delete(int id)
