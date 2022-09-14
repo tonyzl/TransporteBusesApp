@@ -1,4 +1,8 @@
 ﻿@page
+
+{
+    
+}
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -48,7 +52,20 @@
         </div>
     </div>
 </div>
+<div>
+    <button class="btn btn-light" onclick="not()">
+        Notify
+    </button>
+</div>
 <!--<div class="text-center">
     <h1 class="display-4">Bienvenidos APP Transportes</h1>
     <img src="/images/station image.jpg", style="max-width:100%;max-height:50%;">
 </div>-->
+@section scripts {
+   
+    <script type="text/javascript">
+        function not(){
+        toastr.info('Are you the 6 fingered man?');
+        }
+    </script>
+}

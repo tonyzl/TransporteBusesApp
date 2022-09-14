@@ -26,8 +26,7 @@ namespace TransporteBusesApp.Frontend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages()
-                .AddRazorRuntimeCompilation();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
                 services.AddScoped<IRepositorioEstaciones, RepositorioEstaciones>();
                 services.AddScoped<IRepositorioBuses, RepositorioBuses>();
                 services.AddScoped<IRepositorioRutas, RepositorioRutas>();
