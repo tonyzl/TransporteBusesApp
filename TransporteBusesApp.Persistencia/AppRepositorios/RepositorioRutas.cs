@@ -38,7 +38,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         /// </summary>
         /// <param name="ruta">recibe un obejto ruta con 2 objetos Estaciones </param>
         /// <returns>Retorna el ultimo valor almacenadoo</returns>
-        public Rutas Create(Rutas ruta)
+        public Rutas Create(Rutas ruta) //se crea la ruta en la base de datos
         {
         
             var rutainsertada = _appContext.Rutas.Add(ruta);
@@ -49,7 +49,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 
         }
 
-        public bool Delete(int id)
+        public bool Delete(int id) //se elimina una ruta en la base de datos
         {
             Rutas ruta = _appContext.Rutas.FirstOrDefault(r => r.id == id);
 
@@ -64,7 +64,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             }
         }
 
-        public IEnumerable<Rutas> GetAll()
+        public IEnumerable<Rutas> GetAll() // se listan todas las rutas en la base de datos
         {
             rutas = _appContext.Rutas
                 .Include(u => u.origen)
@@ -78,13 +78,13 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Retorna un objeto Ruta encontrado con el Id</returns>
-        public Rutas GetWithId(int id)
+        public Rutas GetWithId(int id) //se busca una ruta en la base de datos
         {
 
              return _appContext.Rutas.FirstOrDefault(r => r.id == id);
         }
 
-        public Rutas Update(Rutas newruta)
+        public Rutas Update(Rutas newruta) //se actualiza una ruta en la base de datos
         {
            Rutas rutaencontrada = _appContext.Rutas.FirstOrDefault(r => r.id == newruta.id);
            if(rutaencontrada != null)
