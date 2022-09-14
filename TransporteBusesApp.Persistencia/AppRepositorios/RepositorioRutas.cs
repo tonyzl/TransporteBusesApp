@@ -51,12 +51,13 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 
         public bool Delete(int id)
         {
-            Rutas ruta = rutas.FirstOrDefault(r => r.id == id);
+            Rutas ruta = _appContext.Rutas.FirstOrDefault(r => r.id == id);
 
            if(ruta != null){
 
-            return rutas.Remove(ruta);
-
+            _appContext.Rutas.Remove(ruta);
+                _appContext.SaveChanges();
+                return true;
             }else{
                 
                 return false;
@@ -80,19 +81,20 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         public Rutas GetWithId(int id)
         {
 
-             return _appContext.Rutas.Find(id);
+             return _appContext.Rutas.FirstOrDefault(r => r.id == id);
         }
 
         public Rutas Update(Rutas newruta)
         {
-           Rutas rutaencontrada = rutas.FirstOrDefault(r => r.id == newruta.id);
+           Rutas rutaencontrada = _appContext.Rutas.FirstOrDefault(r => r.id == newruta.id);
            if(rutaencontrada != null)
            {
-                rutaencontrada.origen = newruta.origen;
-                rutaencontrada.destino = newruta.destino;
+                rutaencontrada.origenid = newruta.origenid;
+                rutaencontrada.destinoid = newruta.destinoid;
                 rutaencontrada.tiempo_estimado = newruta.tiempo_estimado;
-                
-                return rutaencontrada;
+                var actualizado = _appContext.Update(rutaencontrada);
+                _appContext.SaveChanges();
+                return actualizado.Entity;
             }
 
             return rutaencontrada;

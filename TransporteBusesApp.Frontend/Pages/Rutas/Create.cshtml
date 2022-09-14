@@ -23,15 +23,15 @@
         <div class="form-group row">
         <label asp-for="ruta.origen" class="col-form-label col-2 font-weight-bold">Origen:</label>
         <div class="col-10">
-        <select asp-for="ruta.origenid" asp-items="@Model.lst_origen" class="form-control">
-          <option>seleccione las estacion de origen</option>
+        <select asp-for="ruta.origenid" asp-items="@Model.lst_origen" class="form-select form-select-lg form-control">
+          <option selected>seleccione las estacion de origen</option>
         </select>
         </div></div>
         <div class="form-group row">
         <label asp-for="ruta.destino.id" class="col-form-label col-2 font-weight-bold">Destino:</label>
         <div class="col-10">
-        <select asp-for="ruta.destinoid" asp-items="@Model.lst_destino" class="form-control">
-          <option>seleccione la estacion de destino</option>
+        <select asp-for="ruta.destinoid" asp-items="@Model.lst_destino" class="form-select form-select-lg form-control">
+          <option selected>seleccione la estacion de destino</option>
         </select>
         </div></div>
         <div class="form-group row">
