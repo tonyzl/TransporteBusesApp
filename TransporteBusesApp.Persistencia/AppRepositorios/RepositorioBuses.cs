@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using TransporteBusesApp.Dominio;
 using System.Linq;
 using System;
- 
+using System.IO;
+
 namespace TransporteBusesApp.Persistencia.AppRepositorios
 {
     public class RepositorioBuses : IRepositorioBuses
     {
-        
         AppdbContext _appdbContext;
         public RepositorioBuses(AppdbContext appdbContext)
         {
@@ -15,15 +15,14 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             
         }
 
-        public Buses Create(Buses newBus)
+        public Buses Create(Buses newBus) //se crea bus en la base de datos
         {
-            
             var busagregado =_appdbContext.Buses.Add(newBus);
             _appdbContext.SaveChanges();
             return busagregado.Entity;
         }
 
-        public bool Delete(int id)
+        public bool Delete(int id) //se elimina un bus en la base de datos
         {
            Buses bus = _appdbContext.Buses.FirstOrDefault(b => b.id == id);
 
@@ -43,16 +42,16 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             }
         }
 
-        public IEnumerable<Buses> GetAll()
+        public IEnumerable<Buses> GetAll() //se listan todos los buses en la base de datos
         {
             return _appdbContext.Buses.ToList();
         }
  
-        public Buses GetWithId(int id){
+        public Buses GetWithId(int id){  //se busca un bus en la base de datos
             return _appdbContext.Buses.FirstOrDefault(b => b.id == id);
         }
 
-        public Buses Update(Buses newBus){
+        public Buses Update(Buses newBus){  //se edita un bus en la base de datos
             var bus= _appdbContext.Buses.FirstOrDefault(b => b.id == newBus.id);
             
             if(bus != null){

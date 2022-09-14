@@ -20,7 +20,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         }
         public RepositorioRutas()
         {
-            
+            /*
             Estaciones Estacion1 = _repositorioEstaciones.GetWithId(1);
             Estaciones Estacion2 = _repositorioEstaciones.GetWithId(2);
             Estaciones Estacion3 = _repositorioEstaciones.GetWithId(3);
@@ -31,51 +31,46 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
                 new Rutas{id=2, origen = Estacion3,destino = Estacion2, tiempo_estimado= 90},
                 new Rutas{id=3, origen = Estacion2,destino = Estacion1, tiempo_estimado= 30},
                 new Rutas{id=4, origen = Estacion3,destino = Estacion1, tiempo_estimado= 60}
-            };
+            };*/
         }
         /// <summary>
         /// Este metodo almacena una Ruta en la base de datos
         /// </summary>
         /// <param name="ruta">recibe un obejto ruta con 2 objetos Estaciones </param>
         /// <returns>Retorna el ultimo valor almacenadoo</returns>
-        public Rutas Create(Rutas ruta)
+        public Rutas Create(Rutas ruta) //se crea la ruta en la base de datos
         {
-            Estaciones origen = _repositorioEstaciones.GetWithId(ruta.origen.id);
-            Estaciones destino = _repositorioEstaciones.GetWithId(ruta.destino.id);
-            ruta.origen = origen;
-            ruta.destino = destino;
-            if(rutas.Count > 0){
-                ruta.id = rutas.Max(r => r.id) +1; 
-            } else {
-               ruta.id = 1; 
-            }
-
-            rutas.Add(ruta);
-            return rutas.Last();
+        
+            var rutainsertada = _appContext.Rutas.Add(ruta);
+            _appContext.SaveChanges();
+            return rutainsertada.Entity;
             //se agrega la ruta
 
-            
+
         }
 
-        public bool Delete(int id)
+        public bool Delete(int id) //se elimina una ruta en la base de datos
         {
-            Rutas ruta = rutas.FirstOrDefault(r => r.id == id);
+            Rutas ruta = _appContext.Rutas.FirstOrDefault(r => r.id == id);
 
            if(ruta != null){
 
-            return rutas.Remove(ruta);
-
+            _appContext.Rutas.Remove(ruta);
+                _appContext.SaveChanges();
+                return true;
             }else{
                 
                 return false;
             }
         }
 
-        public IEnumerable<Rutas> GetAll()
+        public IEnumerable<Rutas> GetAll() // se listan todas las rutas en la base de datos
         {
-           return _appContext.Rutas
+            rutas = _appContext.Rutas
                 .Include(u => u.origen)
-                .Include(u => u.destino);
+                .Include(u => u.destino).ToList();
+
+            return rutas;
 
         }
         /// <summary>
@@ -83,21 +78,23 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Retorna un objeto Ruta encontrado con el Id</returns>
-        public Rutas GetWithId(int id)
+        public Rutas GetWithId(int id) //se busca una ruta en la base de datos
         {
-             return _appContext.Rutas.Find(id);
+
+             return _appContext.Rutas.FirstOrDefault(r => r.id == id);
         }
 
-        public Rutas Update(Rutas newruta)
+        public Rutas Update(Rutas newruta) //se actualiza una ruta en la base de datos
         {
-           Rutas rutaencontrada = rutas.FirstOrDefault(r => r.id == newruta.id);
+           Rutas rutaencontrada = _appContext.Rutas.FirstOrDefault(r => r.id == newruta.id);
            if(rutaencontrada != null)
            {
-                rutaencontrada.origen = newruta.origen;
-                rutaencontrada.destino = newruta.destino;
+                rutaencontrada.origenid = newruta.origenid;
+                rutaencontrada.destinoid = newruta.destinoid;
                 rutaencontrada.tiempo_estimado = newruta.tiempo_estimado;
-                
-                return rutaencontrada;
+                var actualizado = _appContext.Update(rutaencontrada);
+                _appContext.SaveChanges();
+                return actualizado.Entity;
             }
 
             return rutaencontrada;

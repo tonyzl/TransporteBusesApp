@@ -12,23 +12,23 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         {
             _appContext = appcontext;
         }
-        public IEnumerable<Estaciones> GetAll()
+        public IEnumerable<Estaciones> GetAll() //se listan  las estaciones en la base de datos
         {
             return _appContext.Estaciones;
         }
  
-        public Estaciones GetWithId(int id){
+        public Estaciones GetWithId(int id){ //se busca una estacion en la base de datos con id
             return _appContext.Estaciones.Find(id);
         }
 
-        public Estaciones Create(Estaciones newEstacion)
+        public Estaciones Create(Estaciones newEstacion) //se crea una estacion en la base de datos
         {
             var addEstacion= _appContext.Estaciones.Add(newEstacion);
             _appContext.SaveChanges();
             return addEstacion.Entity;
         }
 
-        public Estaciones Update(Estaciones newEstacion)
+        public Estaciones Update(Estaciones newEstacion) // se actualiza una estacion en la base de datos
         {
             var estacion = _appContext.Estaciones.Find(newEstacion.id);
 
@@ -45,7 +45,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             return estacion;
         } 
 
-        public bool Delete(int id)
+        public bool Delete(int id) //se elimina una estacion en la base de datos
         {
             var estacion = _appContext.Estaciones.Find(id);
             if (estacion == null)

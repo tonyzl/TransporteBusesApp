@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ namespace TransporteBusesApp.Frontend.Pages
         
         [BindProperty]
         public Dominio.Buses bus {get; set;}
+        
 
         public FormBusesModel(IRepositorioBuses repositoriobuses)
         {
@@ -27,8 +29,10 @@ namespace TransporteBusesApp.Frontend.Pages
         }
         public IActionResult OnPost()
         {
+            
             if(ModelState.IsValid)
             {
+
                 repositoriobuses.Create(bus);
                 return RedirectToPage("List");
             }

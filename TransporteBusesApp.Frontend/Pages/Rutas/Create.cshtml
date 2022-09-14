@@ -15,24 +15,27 @@
       </div>
     </div>
   </div>
+  @if(@Model.mensaje == "error"){
+    <h4>@Model.mensaje : Estaciones Iguales</h4>
+  }
 <div class="text-center " >
     <form method="POST" class="mt-4">
         <div class="form-group row">
-        <label for="origen" class="col-form-label col-2 font-weight-bold">Origen:</label>
+        <label asp-for="ruta.origen" class="col-form-label col-2 font-weight-bold">Origen:</label>
         <div class="col-10">
-        <select asp-for="ruta.origen.id" asp-items="@Model.selectestaciones" class="form-control">
-          <option>seleccione las estacion de origen</option>
+        <select asp-for="ruta.origenid" asp-items="@Model.lst_origen" class="form-select form-select-lg form-control">
+          <option selected>seleccione las estacion de origen</option>
         </select>
         </div></div>
         <div class="form-group row">
-        <label for="destino" class="col-form-label col-2 font-weight-bold">Destino:</label>
+        <label asp-for="ruta.destino.id" class="col-form-label col-2 font-weight-bold">Destino:</label>
         <div class="col-10">
-        <select asp-for="ruta.destino.id" asp-items="@Model.selectestaciones" class="form-control">
-          <option>seleccione la estacion de destino</option>
+        <select asp-for="ruta.destinoid" asp-items="@Model.lst_destino" class="form-select form-select-lg form-control">
+          <option selected>seleccione la estacion de destino</option>
         </select>
         </div></div>
         <div class="form-group row">
-        <label for="tiempo_estimado" class="col-form-label col-2 font-weight-bold">Tiempo Estimado:</label>
+        <label asp-for="ruta.tiempo_estimado" class="col-form-label col-2 font-weight-bold">Tiempo Estimado:</label>
         <div class="col-10">
         <input type="text" class="form-control" asp-for="ruta.tiempo_estimado" required placeholder="Tiempo Estimado">
         </div>

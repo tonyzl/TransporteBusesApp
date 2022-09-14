@@ -1,5 +1,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+
+
 namespace TransporteBusesApp.Dominio{
     
     public class Buses
@@ -33,4 +38,7 @@ namespace TransporteBusesApp.Dominio{
         public string foto {get;set;}            
            
     }
+
+
+   
 }
