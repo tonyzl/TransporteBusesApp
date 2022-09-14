@@ -9,7 +9,8 @@ namespace TransporteBusesApp.Persistencia
         public DbSet<Rutas> Rutas { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=dbtransportes");
+        optionsBuilder.UseSqlServer(@"Server=192.168.1.6\EDWINDB;Database=dbtransportes; user=EDWIN;password=edwin;");//Running on docker image
+        //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=dbtransportes;);
     }
        
     }
