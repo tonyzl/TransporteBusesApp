@@ -16,8 +16,7 @@ namespace TransporteBusesApp.Frontend.Pages
         
         [BindProperty]
         public Dominio.Buses bus {get; set;}
-        [BindProperty]
-        public Dominio.ArchivoFoto archivoFoto{ get; set; }
+        
 
         public FormBusesModel(IRepositorioBuses repositoriobuses)
         {
