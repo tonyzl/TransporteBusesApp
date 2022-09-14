@@ -14,39 +14,56 @@ namespace TransporteBusesApp.Frontend.Pages
 {
     public class FormRutasModel : PageModel
     {   
-       
+       [TempData]
+       public string mensaje { get; set; }
         [BindProperty]
         public Dominio.Rutas ruta { get; set; }
-        List<Dominio.Estaciones> estaciones;
+
         [BindProperty]
-        public List<SelectListItem> selectestaciones { get; set; }
-        public IRepositorioRutas repositorioRutas { get; set; }
-        public IRepositorioEstaciones repositorioEstaciones { get; set; }
+        public List<SelectListItem> lst_origen { get; set; }
+        [BindProperty]
+        public List<SelectListItem> lst_destino { get; set; }
+        public IRepositorioRutas _repositorioRutas { get; set; }
+        public IRepositorioEstaciones _repositorioEstaciones { get; set; }
         public FormRutasModel(IRepositorioRutas repositorioRutas,IRepositorioEstaciones repositorioEstaciones)
         {
-            this.repositorioRutas = repositorioRutas;
-            this.repositorioEstaciones = repositorioEstaciones;
+            _repositorioRutas = repositorioRutas;
+            _repositorioEstaciones = repositorioEstaciones;
         }
         public void OnGet()
         {
+            lst_origen = GetListEstaciones();
+            lst_destino = GetListEstaciones();
 
-            estaciones = this.repositorioEstaciones.GetAll().ToList();
+        }
+        
+        
+
+        public IActionResult OnPost(Dominio.Rutas ruta){
+            
+            if(ModelState.IsValid && ruta.origenid != ruta.destinoid){
+            _repositorioRutas.Create(ruta);
+            return RedirectToPage("./List");
+            }else{
+                mensaje = "error";
+                return RedirectToPage("./Create");
+            }
+
+            
+        }
+
+        //metodo para llenar las listas de estaciones
+        public List<SelectListItem> GetListEstaciones(){
+            var selectestaciones = new List<SelectListItem>();
+            List<Dominio.Estaciones> estaciones = _repositorioEstaciones.GetAll().ToList();
+            
             selectestaciones = estaciones.Select(e => new SelectListItem
             {
                 Value = e.id.ToString(),
                 Text = e.nombre
             }).ToList();
-        }
-        
-        
 
-        public IActionResult OnPost(){
-            
-            if(ModelState.IsValid){
-            this.repositorioRutas.Create(ruta);
-            return RedirectToPage("./List");
-            }
-            return Page();
+            return selectestaciones;
         }
     }
 }

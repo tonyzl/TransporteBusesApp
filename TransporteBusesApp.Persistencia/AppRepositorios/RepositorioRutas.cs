@@ -42,6 +42,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         {
         
             var rutainsertada = _appContext.Rutas.Add(ruta);
+            _appContext.SaveChanges();
             return rutainsertada.Entity;
             //se agrega la ruta
 

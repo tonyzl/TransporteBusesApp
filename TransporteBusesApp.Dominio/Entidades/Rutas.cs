@@ -9,17 +9,17 @@ namespace TransporteBusesApp.Dominio{
         public int id {get; set;}
         [ForeignKey("Origenid")]
         [Display(Name="Origen")]
-        public int origenid{ get; set;}
+        public int? origenid{ get; set;}
 
         [ForeignKey("Destinoid")]
-        [Display(Name="Destino id")]
-        public int destinoid{ get; set;}
+        [Display(Name="Destinoid")]
+        public int? destinoid{ get; set;}
 
         [Required]
         [Display(Name="Tiempo Estimado")]
         public int tiempo_estimado {get; set;} 
 
          public virtual Estaciones destino {get; set;} 
-          public virtual Estaciones origen {get; set;} 
+        public virtual Estaciones origen {get; set;} 
     }
 }
