@@ -35,7 +35,7 @@ namespace TransporteBusesApp.Dominio{
 
         //[Required]
         [Display(Name="Foto")]         
-        public string foto {get;set;}            
+        public ArchivoFoto foto {get;set;}            
            
     }
 
