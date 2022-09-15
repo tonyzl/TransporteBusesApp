@@ -10,8 +10,10 @@ namespace TransporteBusesApp.Frontend.Pages.Rutas
 {
     public class Edit : PageModel
     {
-        //TempData["success"] = "Ruta Editada Correctamente";
-        //TempData["error"] = "Error al Editar la ruta valide que el origen y el destino no sean iguales";
+       [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
         private readonly ILogger<Edit> _logger;
 
         public Edit(ILogger<Edit> logger)

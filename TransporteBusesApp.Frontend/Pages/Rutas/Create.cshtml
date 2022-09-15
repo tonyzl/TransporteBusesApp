@@ -1,8 +1,8 @@
 @page
 @model TransporteBusesApp.Frontend.Pages.FormRutasModel
 @using TransporteBusesApp.Dominio;
-@{
-}
+
+
 <div class="page-heading">
     <div class="container">
       <div class="row">
@@ -16,7 +16,7 @@
     </div>
   </div>
   
-  <partial name="_NotificationsPartial"></partial> @* se agrega la vista parcial de la notificacion *@
+  
   
 <div class="text-center " >
     <form method="POST" class="mt-4">
@@ -44,4 +44,8 @@
         <hr>
         <button type="submit" class="btn btn-success">Crear Ruta</button>
     </form>
+    
+   
 </div>
+<partial name="_NotificationsPartial"></partial>
+    

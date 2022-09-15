@@ -14,6 +14,11 @@ namespace TransporteBusesApp.Frontend.Pages
        private readonly IRepositorioEstaciones repositorioEstaciones;
        [BindProperty]
        public Dominio.Estaciones Estacion {get;set;}
+       
+       [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
  
         public EditEstacionModel(IRepositorioEstaciones repositorioEstaciones)
        {

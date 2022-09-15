@@ -17,6 +17,10 @@ namespace TransporteBusesApp.Frontend.Pages
         [BindProperty]
         public IEnumerable<Dominio.Estaciones> Estaciones {get;set;}
         [BindProperty]
+        [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
         public Dominio.Estaciones Estacion {get;set;}
     
         public ListEstacionesModel(IRepositorioEstaciones repositorioEstaciones)

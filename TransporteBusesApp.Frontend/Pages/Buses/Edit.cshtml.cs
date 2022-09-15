@@ -15,6 +15,10 @@ namespace TransporteBusesApp.Frontend.Pages
         [BindProperty]
         public Dominio.Buses Bus {get;set;}
  
+        [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
         public EditBusModel(IRepositorioBuses repositorioBuses)
         {
             this.repositorioBuses=repositorioBuses;

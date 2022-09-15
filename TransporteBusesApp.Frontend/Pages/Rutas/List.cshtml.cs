@@ -18,6 +18,10 @@ namespace TransporteBusesApp.Frontend.Pages
 
         [BindProperty]
         public Dominio.Rutas ruta { get; set; }
+        [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
 
         public ListRutasModel(IRepositorioRutas repositorioRutas)
         {

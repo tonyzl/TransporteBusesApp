@@ -15,8 +15,13 @@ namespace TransporteBusesApp.Frontend.Pages
         private readonly IRepositorioBuses repositorioBuses;
         [BindProperty]
         public IEnumerable<Dominio.Buses> Buses {get;set;}
+
         [BindProperty]
         public Dominio.Buses Bus {get;set;}
+        [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
  
     public ListBusModel(IRepositorioBuses repositorioBuses)
     {

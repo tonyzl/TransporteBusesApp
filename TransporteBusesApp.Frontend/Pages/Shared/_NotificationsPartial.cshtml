@@ -1,18 +1,23 @@
-@*
-    Esta es una vista parcial que se renderiza en las paginas usando temp data para mostrar notificaciones usando Toaster
-*@
+@if(Model.mensaje_error != null){
+    <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center align-content-center col-6 alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-bs-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        @Model.mensaje_error
+  </div>
+  </div>
+  
+ }
 
-@if(TempData["success"] != null){
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/notificaciones.js">
-        notificacion_guardado();
-    </script>
-}
-@if(TempData["error"] != null){
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/notificaciones.js">
-        notificacion_error();
-    </script>
-}
+ @if(Model.mensaje_guardado != null){
+    <div class="d-flex justify-content-center">
+  <div class=" col-6 alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-bs-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        @Model.mensaje_guardado
+  </div>
+  </div>
+  
+ }
