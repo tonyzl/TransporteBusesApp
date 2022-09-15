@@ -34,7 +34,7 @@ namespace TransporteBusesApp.Frontend.Pages
             {
                 this.repositorioBuses.Delete(Bus.id);
             }
-
+            
             return RedirectToPage("./List");
         }
 

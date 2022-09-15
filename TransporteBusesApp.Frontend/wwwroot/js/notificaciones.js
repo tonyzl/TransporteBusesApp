@@ -44,3 +44,25 @@ function Alerta_Confirmacion(id, nombre,tipo) {
     });
     return false;
 }
+
+//******Funcion Toastr de confirmacion */
+
+function notificacion_guardado(){
+    toastr.success('Registro Guardado Correctamente');
+    toastr.options.closeButton = true;
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.closeDuration = 3;
+    toastr.options.closeEasing = 'swing';
+    toastr.options.progressBar = true;
+    
+}
+    
+function notificacion_error(){
+    toastr.error('No se pudo guardar el registro');
+    toastr.options.closeButton = true;
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.closeDuration = 3;
+    toastr.options.closeEasing = 'swing';
+    toastr.options.progressBar = true;
+    
+    }

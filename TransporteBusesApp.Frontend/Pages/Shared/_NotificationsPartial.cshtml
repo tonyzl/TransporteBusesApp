@@ -1,0 +1,18 @@
+@*
+    Esta es una vista parcial que se renderiza en las paginas usando temp data para mostrar notificaciones usando Toaster
+*@
+
+@if(TempData["success"] != null){
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/notificaciones.js">
+        notificacion_guardado();
+    </script>
+}
+@if(TempData["error"] != null){
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/notificaciones.js">
+        notificacion_error();
+    </script>
+}

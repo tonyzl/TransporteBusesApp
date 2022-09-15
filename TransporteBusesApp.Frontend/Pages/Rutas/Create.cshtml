@@ -15,9 +15,9 @@
       </div>
     </div>
   </div>
-  @if(@Model.mensaje == "error"){
-    <h4>@Model.mensaje : Estaciones Iguales</h4>
-  }
+  
+  <partial name="_NotificationsPartial"></partial> @* se agrega la vista parcial de la notificacion *@
+  
 <div class="text-center " >
     <form method="POST" class="mt-4">
         <div class="form-group row">

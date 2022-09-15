@@ -11,7 +11,8 @@ using TransporteBusesApp.Persistencia.AppRepositorios;
 namespace TransporteBusesApp.Frontend.Pages
 {    
     public class FormBusesModel : PageModel
-    {       
+    {     
+        
         private readonly IRepositorioBuses repositoriobuses; 
         
         [BindProperty]
@@ -34,9 +35,10 @@ namespace TransporteBusesApp.Frontend.Pages
             {
 
                 repositoriobuses.Create(bus);
+                TempData["success"] = "Bus Creado Correctamente";
                 return RedirectToPage("List");
             }
-
+            TempData["error"] = "Error al crear el bus";
             return Page();
         }
     }

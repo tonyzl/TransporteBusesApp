@@ -10,6 +10,8 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
     public class RepositorioRutas : IRepositorioRutas
     {
         List<Rutas> rutas;
+
+
         private IRepositorioEstaciones _repositorioEstaciones;
 
         private readonly AppdbContext _appContext;
@@ -17,22 +19,9 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         {
             _appContext = appContext;
             _repositorioEstaciones = new RepositorioEstaciones(appContext);
+
         }
-        public RepositorioRutas()
-        {
-            /*
-            Estaciones Estacion1 = _repositorioEstaciones.GetWithId(1);
-            Estaciones Estacion2 = _repositorioEstaciones.GetWithId(2);
-            Estaciones Estacion3 = _repositorioEstaciones.GetWithId(3);
-            rutas = new List<Rutas>
-            {
-                
-                new Rutas{id=1, origen = _repositorioEstaciones.GetWithId(1),destino = _repositorioEstaciones.GetWithId(3), tiempo_estimado= 45},
-                new Rutas{id=2, origen = Estacion3,destino = Estacion2, tiempo_estimado= 90},
-                new Rutas{id=3, origen = Estacion2,destino = Estacion1, tiempo_estimado= 30},
-                new Rutas{id=4, origen = Estacion3,destino = Estacion1, tiempo_estimado= 60}
-            };*/
-        }
+
         /// <summary>
         /// Este metodo almacena una Ruta en la base de datos
         /// </summary>
@@ -40,7 +29,7 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         /// <returns>Retorna el ultimo valor almacenadoo</returns>
         public Rutas Create(Rutas ruta) //se crea la ruta en la base de datos
         {
-        
+
             var rutainsertada = _appContext.Rutas.Add(ruta);
             _appContext.SaveChanges();
             return rutainsertada.Entity;
@@ -53,13 +42,16 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         {
             Rutas ruta = _appContext.Rutas.FirstOrDefault(r => r.id == id);
 
-           if(ruta != null){
+            if (ruta != null)
+            {
 
-            _appContext.Rutas.Remove(ruta);
+                _appContext.Rutas.Remove(ruta);
                 _appContext.SaveChanges();
                 return true;
-            }else{
-                
+            }
+            else
+            {
+
                 return false;
             }
         }
@@ -81,14 +73,14 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         public Rutas GetWithId(int id) //se busca una ruta en la base de datos
         {
 
-             return _appContext.Rutas.FirstOrDefault(r => r.id == id);
+            return _appContext.Rutas.FirstOrDefault(r => r.id == id);
         }
 
         public Rutas Update(Rutas newruta) //se actualiza una ruta en la base de datos
         {
-           Rutas rutaencontrada = _appContext.Rutas.FirstOrDefault(r => r.id == newruta.id);
-           if(rutaencontrada != null)
-           {
+            Rutas rutaencontrada = _appContext.Rutas.FirstOrDefault(r => r.id == newruta.id);
+            if (rutaencontrada != null)
+            {
                 rutaencontrada.origenid = newruta.origenid;
                 rutaencontrada.destinoid = newruta.destinoid;
                 rutaencontrada.tiempo_estimado = newruta.tiempo_estimado;
@@ -98,6 +90,30 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             }
 
             return rutaencontrada;
+
+        }
+
+        public IEnumerable<Rutas> GetbyStations(int idorigen, int idDestino)
+        {
+
+            Estaciones Estacion1 = _repositorioEstaciones.GetWithId(1);
+            Estaciones Estacion2 = _repositorioEstaciones.GetWithId(2);
+            Estaciones Estacion3 = _repositorioEstaciones.GetWithId(3);
+            List<Rutas> rutaslocal = new List<Rutas>
+            {
+
+                new Rutas{id=1, origen = _repositorioEstaciones.GetWithId(1),destino = _repositorioEstaciones.GetWithId(3), tiempo_estimado= 45},
+                new Rutas{id=2, origen = Estacion3,destino = Estacion2, tiempo_estimado= 90},
+                new Rutas{id=3, origen = Estacion2,destino = Estacion1, tiempo_estimado= 30},
+                new Rutas{id=4, origen = Estacion3,destino = Estacion1, tiempo_estimado= 60},
+                new Rutas{id=5, origen = Estacion3,destino = Estacion2, tiempo_estimado= 50},
+                new Rutas{id=6, origen = Estacion3,destino = Estacion2, tiempo_estimado= 55},
+            };
+            var rutas_filtradas =
+                 from ruta in rutaslocal
+                 where ruta.origen.id == idorigen && ruta.destino.id == idDestino
+                 select ruta;
+            return rutas_filtradas;
 
         }
     }

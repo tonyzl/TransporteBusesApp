@@ -14,8 +14,7 @@ namespace TransporteBusesApp.Frontend.Pages
 {
     public class FormRutasModel : PageModel
     {   
-       [TempData]
-       public string mensaje { get; set; }
+       
         [BindProperty]
         public Dominio.Rutas ruta { get; set; }
 
@@ -43,9 +42,10 @@ namespace TransporteBusesApp.Frontend.Pages
             
             if(ModelState.IsValid && ruta.origenid != ruta.destinoid){
             _repositorioRutas.Create(ruta);
+            TempData["success"] = "Ruta Creada Correctamente";
             return RedirectToPage("./List");
             }else{
-                mensaje = "error";
+                TempData["error"] = "Error al crear la ruta valide que el origen y el destino no sean iguales";
                 return RedirectToPage("./Create");
             }
 
