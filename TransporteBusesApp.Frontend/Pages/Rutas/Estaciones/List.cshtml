@@ -1,0 +1,86 @@
+@page
+@model TransporteBusesApp.Frontend.Pages.Rutas.Estaciones.List
+@{
+    
+}
+
+<div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="top-text header-text">
+            <h6>Rutas</h6>
+            <h2>Administrar Lista de Rutas</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div>
+    <partial name="_NotificationsPartial"></partial> @* se agrega la vista parcial de la notificacion *@
+</div>
+
+
+<div class="card row pl-5 ml-5 mt-0 pt-3 pr-5 mr-5">
+    <div class="col-3">
+        <a asp-page="/Rutas/Create" class="btn btn-outline-info">Crear Ruta</a>
+    </div>
+    <table class="table table-striped table-bordered col-12 mt-4">
+    <thead>
+        <tr>
+            <th scope="col"><label asp-for="rutas.FirstOrDefault().id"></label></th>
+            <th scope="col"><label asp-for="rutas.FirstOrDefault().origen"></label></th>
+            <th scope="col"><label asp-for="rutas.FirstOrDefault().destino"></label></th>
+            <th scope="col"><label asp-for="rutas.FirstOrDefault().tiempo_estimado"></label>
+            <th scope="col"><label>Acciones</label></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.rutas.Count() > 0)
+        {
+            @foreach(var item in Model.rutas)
+            {
+                <tr>
+                    <th scope="row">@Html.DisplayFor(m =>item.id)</th>
+                    <td>@Html.DisplayFor(m =>item.origen.nombre)</td>
+                    <td>@Html.DisplayFor(m =>item.destino.nombre)</td>
+                    <td>@Html.DisplayFor(m =>item.tiempo_estimado)</td>
+                    <td class="btn-group" role="group">
+                <div class="mr-1">
+                        <a class="btn btn-success" asp-page="/Rutas/Details" asp-route-id="@item.id">Ver</a>
+                        </div>
+                        <div class="mr-1">
+                        <a class="btn btn-info" asp-page="/Rutas/Edit" asp-route-id="@item.id">Editar</a> 
+                        </div>      
+                        <div class="mr-1">
+                        <form asp-route-id="@item.id" asp-page-handler="Delete"  >
+                        <button class="btn btn-danger"  onclick="return Alerta_Confirmacion('@item.id','@item.id','ruta')" >Eliminar</button>
+                        </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+            
+        }
+        else
+        {
+            <tr>
+                <td>
+                    <p>No Hay Rutas disponibles</p>
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+        
+    </table>
+    
+    
+</div>
+@section scripts{
+
+<script type="text/javascript "src="~/js/notificaciones.js">
+    
+</script>
+}

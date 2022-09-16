@@ -116,5 +116,15 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
             return rutas_filtradas;
 
         }
+
+        public Rutas GetStationsbyid(int idruta)
+        {
+            var rutas = _appContext.Rutas
+                            .Include(r => r.origen)
+                            .Include(r => r.destino)
+                            .FirstOrDefault(r => r.id == idruta);
+            return rutas;
+
+        }
     }
 }
