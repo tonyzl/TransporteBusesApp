@@ -16,7 +16,7 @@
         </div>
     </div>
 </div>
-<partial name="_NotificationsPartial"></partial> @* se agrega la vista parcial de la notificacion *@
+
 <div class="text-center">
 <form method="POST">
   <label for="id" class="form-label">id:</label>
@@ -35,3 +35,11 @@
   <button type="submit" class="btn btn-success">Actualizar</button>
 </form>
 </div>
+<div>
+    <partial name="_NotificationsPartial"></partial> @* se agrega la vista parcial de la notificacion *@
+</div>
+ @section Scripts {
+  @{ 
+     await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+ }   

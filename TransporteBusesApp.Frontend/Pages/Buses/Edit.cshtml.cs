@@ -34,14 +34,14 @@ namespace TransporteBusesApp.Frontend.Pages
         {
             if(!ModelState.IsValid)
             {
-                TempData["error"] = "Error al Editar el bus";
+                mensaje_error = "Error al Editar el bus";
                 return Page();
             }
             if(Bus.id>0)
             {
              Bus = repositorioBuses.Update(Bus);
             }
-            TempData["success"] = "Bus Editado Correctamente";
+            mensaje_guardado = "Bus Editado Correctamente";
             return RedirectToPage("List");
         }
     }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TransporteBusesApp.Dominio{
     public class Rutas{
-        [Required,Key]
+        [Key]
         [Display(Name="Id")]
         public int id {get; set;}
         [ForeignKey("Origenid")]

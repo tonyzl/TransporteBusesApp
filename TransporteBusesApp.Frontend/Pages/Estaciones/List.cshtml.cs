@@ -38,12 +38,19 @@ namespace TransporteBusesApp.Frontend.Pages
         }
         public IActionResult OnPostDelete(int id)
         {
-            if(Estacion.id > 0)
+            if(id > 0)
             {
-                this.repositorioEstaciones.Delete(Estacion.id);
+                if(this.repositorioEstaciones.Delete(id)){
+                    mensaje_guardado = "Estacion eliminada Correctamente";
+                }else{
+                    mensaje_error = "Error al momento de Eliminar la estacion valide que la estacion no tenga rutas relacionadas";
+                }
+                
+                
             }
 
             return RedirectToPage("./List");
+            
         }
     }
 }

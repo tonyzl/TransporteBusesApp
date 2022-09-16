@@ -16,7 +16,9 @@
   </div>
 </div>
 
-<partial name="_NotificationsPartial"></partial> @* se agrega la vista parcial de la notificacion *@
+<div>
+    <partial name="_NotificationsPartial"></partial> @* se agrega la vista parcial de la notificacion *@
+</div>
 
 <div class="card row pl-5 ml-5 mt-3 pt-3 pr-5 mr-5">
   <div class="col-3">
@@ -49,7 +51,7 @@
             <a class="btn btn-info" asp-page="./Details" asp-route-estacionId="@estacion.id"><i class="fa fa-eye"></i> Ver</a>
             <a class="btn btn-info" asp-page="./Edit" asp-route-estacionId="@estacion.id"><i class="fa fa-pencil"></i> Editar</a>
             <a class="btn btn-danger btn-delete text-white"  onclick="alerta_eliminar(@estacion.id, '@estacion.nombre')"><i class="fa fa-trash-o"></i> Eliminar</a>
-            <form method="POST" asp-page-handler="Delete" id="form_delete_@estacion.id">
+            <form method="POST" asp-route-id="@estacion.id" asp-page-handler="Delete" id="form_delete_@estacion.id">
               <input type="hidden" class="form-control d-none" asp-for="@estacion.id">
             </form>
           </td>

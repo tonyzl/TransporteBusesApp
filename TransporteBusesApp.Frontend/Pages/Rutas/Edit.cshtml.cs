@@ -19,6 +19,7 @@ namespace TransporteBusesApp.Frontend.Pages.Rutas
         public Edit(ILogger<Edit> logger)
         {
             _logger = logger;
+            //Falta implementar Lógica
         }
 
         public void OnGet()

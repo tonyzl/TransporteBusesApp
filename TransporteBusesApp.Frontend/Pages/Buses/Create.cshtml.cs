@@ -39,10 +39,10 @@ namespace TransporteBusesApp.Frontend.Pages
             {
 
                 repositoriobuses.Create(bus);
-                TempData["success"] = "Bus Creado Correctamente";
+                mensaje_guardado = "Bus Creado Correctamente";
                 return RedirectToPage("List");
             }
-            TempData["error"] = "Error al crear el bus";
+            mensaje_error = "Error al crear el bus";
             return Page();
         }
     }

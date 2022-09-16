@@ -35,11 +35,12 @@ namespace TransporteBusesApp.Frontend.Pages
             if(ModelState.IsValid)
             {
                 repositorioEstaciones.Create(Estacion);
-                TempData["success"] = "Estacion Creada Correctamente";
+                mensaje_guardado = "Estacion Creada Correctamente";
                 return RedirectToPage("List");
+            }else{
+            mensaje_error = "Error al crear la Estacion";
+            return RedirectToPage();
             }
-            TempData["error"] = "Error al crear la Estacion";
-            return Page();
         }
     }
 }
