@@ -1,0 +1,23 @@
+@if(Model.mensaje_error != null){
+    <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center align-content-center col-6 alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-bs-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        @Model.mensaje_error
+  </div>
+  </div>
+  
+ }
+
+ @if(Model.mensaje_guardado != null){
+    <div class="d-flex justify-content-center">
+  <div class=" col-6 alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-bs-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        @Model.mensaje_guardado
+  </div>
+  </div>
+  
+ }

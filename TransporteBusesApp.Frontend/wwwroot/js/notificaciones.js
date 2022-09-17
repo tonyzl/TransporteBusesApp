@@ -44,3 +44,45 @@ function Alerta_Confirmacion(id, nombre,tipo) {
     });
     return false;
 }
+
+//******Funcion Toastr de confirmacion */
+
+function notificacion_guardado(mensaje){
+    toastr.success(mensaje);
+    toastr.options.closeButton = true;
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.closeDuration = 3;
+    toastr.options.closeEasing = 'swing';
+    toastr.options.progressBar = true;
+    
+}
+    
+function notificacion_error(mensaje){
+    toastr.error(mensaje);
+    toastr.options.closeButton = true;
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.closeDuration = 3;
+    toastr.options.closeEasing = 'swing';
+    toastr.options.progressBar = true;
+    toastr.options.positionClass = "toast-bottom-left";
+    return true;
+/*
+    toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-bottom-left",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+    }*/
+    
+    }

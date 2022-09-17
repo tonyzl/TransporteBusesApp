@@ -14,6 +14,11 @@ namespace TransporteBusesApp.Frontend.Pages
         
         [BindProperty]
         public Dominio.Estaciones Estacion {get;set;}
+
+        [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
         
         public FormEstacionesModel(IRepositorioEstaciones repositorioEstaciones)
         {
@@ -30,10 +35,12 @@ namespace TransporteBusesApp.Frontend.Pages
             if(ModelState.IsValid)
             {
                 repositorioEstaciones.Create(Estacion);
+                mensaje_guardado = "Estacion Creada Correctamente";
                 return RedirectToPage("List");
+            }else{
+            mensaje_error = "Error al crear la Estacion";
+            return RedirectToPage();
             }
-
-            return Page();
         }
     }
 }

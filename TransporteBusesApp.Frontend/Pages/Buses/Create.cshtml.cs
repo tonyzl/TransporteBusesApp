@@ -11,12 +11,17 @@ using TransporteBusesApp.Persistencia.AppRepositorios;
 namespace TransporteBusesApp.Frontend.Pages
 {    
     public class FormBusesModel : PageModel
-    {       
+    {     
+        
         private readonly IRepositorioBuses repositoriobuses; 
         
         [BindProperty]
         public Dominio.Buses bus {get; set;}
         
+        [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
 
         public FormBusesModel(IRepositorioBuses repositoriobuses)
         {
@@ -34,9 +39,10 @@ namespace TransporteBusesApp.Frontend.Pages
             {
 
                 repositoriobuses.Create(bus);
+                mensaje_guardado = "Bus Creado Correctamente";
                 return RedirectToPage("List");
             }
-
+            mensaje_error = "Error al crear el bus";
             return Page();
         }
     }

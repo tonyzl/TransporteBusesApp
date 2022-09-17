@@ -53,3 +53,11 @@
         </div>
     </div>
 </div>
+<div>
+    <partial name="_NotificationsPartial"></partial> @* se agrega la vista parcial de la notificacion *@
+</div>
+ @section Scripts {
+  @{ 
+     await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+ }   

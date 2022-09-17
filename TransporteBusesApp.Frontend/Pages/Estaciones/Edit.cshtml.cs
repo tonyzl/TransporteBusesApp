@@ -14,6 +14,11 @@ namespace TransporteBusesApp.Frontend.Pages
        private readonly IRepositorioEstaciones repositorioEstaciones;
        [BindProperty]
        public Dominio.Estaciones Estacion {get;set;}
+       
+       [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
  
         public EditEstacionModel(IRepositorioEstaciones repositorioEstaciones)
        {
@@ -30,12 +35,14 @@ namespace TransporteBusesApp.Frontend.Pages
         {
             if(!ModelState.IsValid)
             {
+                mensaje_error = "Error al Editar la Estacion";
                 return Page();
             }
             if(Estacion.id>0)
             {
              Estacion = repositorioEstaciones.Update(Estacion);
             }
+            mensaje_guardado = "Estacion editada correctamente";
             return RedirectToPage("./List");
         }
 

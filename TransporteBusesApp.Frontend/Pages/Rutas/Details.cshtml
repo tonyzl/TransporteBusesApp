@@ -1,11 +1,64 @@
 @page
 @model TransporteBusesApp.Frontend.Pages.Rutas.Details
 @{
-    ViewData["Title"] = "Details";
+  var ruta = Model.ruta;
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="top-text header-text">
+            <h6>Rutas</h6>
+            <h2>Detalle de Rutas</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div>
-    
+    <ul class="list-group list-group-flush">
+  <li class="list-group-item"> <b>id: </b> @ruta.id</li>
+  <li class="list-group-item"> <b>Origen: </b> @ruta.origen.nombre</li>
+  <li class="list-group-item"> <b>Destino: </b> @ruta.destino.nombre</li>
+  <li class="list-group-item"><b>Tiempo Estimado: </b> @ruta.tiempo_estimado</li>
+  
+</ul>  
+</div>
+<div class="container-fluid">
+<div class=" col-6 d-flex align-items-center justify-content-center">
+
+
+    <table class="table table-primary table-bordered table-hover">
+
+        <thead class="thead-dark font-weight-bold">
+            <tr>
+                <th colspan="5" class="text-center">Estaciones</th>
+            </tr>
+            <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Direccion</th>
+            <th>Coord_x</th>
+            <th>Coord_y</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>@ruta.origen.nombre</td>
+            <td>@ruta.origen.tipo</td>
+            <td>@ruta.origen.direccion</td>
+            <td>@ruta.origen.coord_x</td>
+            <td>@ruta.origen.coord_y</td>
+        </tr>
+        <tr>
+            <td>@ruta.destino.nombre</td>
+            <td>@ruta.destino.tipo</td>
+            <td>@ruta.destino.direccion</td>
+            <td>@ruta.destino.coord_x</td>
+            <td>@ruta.destino.coord_y</td>
+        </tr>
+   
+    </table>
+</div>
 </div>

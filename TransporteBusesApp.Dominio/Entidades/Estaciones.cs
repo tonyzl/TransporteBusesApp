@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TransporteBusesApp.Dominio{
     public class Estaciones{
-        [Required]
+        [Key]
         [Display(Name="Id")]
-        public int id {get;set;} 
+        public int? id {get;set;} 
 
         [Required, StringLength(40,  MinimumLength =3, ErrorMessage = "Mínimo 5 caracteres")]
         [Display(Name="Nombre")]

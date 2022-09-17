@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TransporteBusesApp.Dominio;
+using Microsoft.Extensions.Logging;
 using TransporteBusesApp.Persistencia.AppRepositorios;
 
-namespace TransporteBusesApp.Frontend.Pages
+namespace TransporteBusesApp.Frontend.Pages.Rutas.Estaciones
 {
-    public class ListRutasModel : PageModel
+    public class List : PageModel
     {
+      
         private readonly IRepositorioRutas repositorioRutas;
 
         [BindProperty]
@@ -23,22 +24,19 @@ namespace TransporteBusesApp.Frontend.Pages
         [TempData]
         public string mensaje_guardado { get; set; }
 
-        public ListRutasModel(IRepositorioRutas repositorioRutas)
+        public List(IRepositorioRutas repositorioRutas)
         {
             this.repositorioRutas = repositorioRutas;
         }
-        public void OnGet()
+        public IActionResult OnGet(int idorigen,int iddestino)
         {
-            rutas = repositorioRutas.GetAll();
+            rutas = repositorioRutas.GetbyStations(idorigen, iddestino);
+            return RedirectToPage("./list");
         }
 
-        public IActionResult OnPostDelete(int id)
-        {
-            this.repositorioRutas.Delete(ruta.id);
-            return RedirectToPage("./List");
-        }
         
             
         }
 
     }
+    

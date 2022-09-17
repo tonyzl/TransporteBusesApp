@@ -47,14 +47,32 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 
         public bool Delete(int id) //se elimina una estacion en la base de datos
         {
-            var estacion = _appContext.Estaciones.Find(id);
-            if (estacion == null)
-                return false;
+           
+            var estacion = _appContext.Estaciones.FirstOrDefault(e => e.id == id);
+            
+           if(estacion != null){
+            try
+            {
                 
-            _appContext.Estaciones.Remove(estacion);
-            _appContext.SaveChanges();
+                _appContext.Estaciones.Remove(estacion);
+                _appContext.SaveChanges();
+                    return true;
+                }
+            catch (System.Exception)
+            {
+                
+                return false;
+            }
 
-            return true;
+            
+            }else{
+                return false;
+            }
+            
+            
+
+            
+                
+            }
         }  
     }
-}

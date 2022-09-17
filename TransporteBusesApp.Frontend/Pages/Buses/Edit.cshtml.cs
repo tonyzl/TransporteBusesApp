@@ -15,6 +15,10 @@ namespace TransporteBusesApp.Frontend.Pages
         [BindProperty]
         public Dominio.Buses Bus {get;set;}
  
+        [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
         public EditBusModel(IRepositorioBuses repositorioBuses)
         {
             this.repositorioBuses=repositorioBuses;
@@ -30,12 +34,14 @@ namespace TransporteBusesApp.Frontend.Pages
         {
             if(!ModelState.IsValid)
             {
+                mensaje_error = "Error al Editar el bus";
                 return Page();
             }
             if(Bus.id>0)
             {
              Bus = repositorioBuses.Update(Bus);
             }
+            mensaje_guardado = "Bus Editado Correctamente";
             return RedirectToPage("List");
         }
     }

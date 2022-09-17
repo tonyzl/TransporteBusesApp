@@ -19,6 +19,8 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
         public Rutas Update(Rutas newbus);
         public Rutas Create(Rutas bus);
         public bool Delete(int id);
+        public IEnumerable<Rutas> GetbyStations(int idorigen, int idDestino);
+        public Rutas GetStationsbyid(int idruta);
     }
     
 }   

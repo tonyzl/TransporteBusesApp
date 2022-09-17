@@ -14,8 +14,7 @@ namespace TransporteBusesApp.Frontend.Pages
 {
     public class FormRutasModel : PageModel
     {   
-       [TempData]
-       public string mensaje { get; set; }
+       
         [BindProperty]
         public Dominio.Rutas ruta { get; set; }
 
@@ -23,18 +22,24 @@ namespace TransporteBusesApp.Frontend.Pages
         public List<SelectListItem> lst_origen { get; set; }
         [BindProperty]
         public List<SelectListItem> lst_destino { get; set; }
+        [TempData]
+        public string mensaje_error { get; set; }
+        [TempData]
+        public string mensaje_guardado { get; set; }
         public IRepositorioRutas _repositorioRutas { get; set; }
         public IRepositorioEstaciones _repositorioEstaciones { get; set; }
         public FormRutasModel(IRepositorioRutas repositorioRutas,IRepositorioEstaciones repositorioEstaciones)
         {
             _repositorioRutas = repositorioRutas;
             _repositorioEstaciones = repositorioEstaciones;
+            
         }
+
         public void OnGet()
         {
             lst_origen = GetListEstaciones();
             lst_destino = GetListEstaciones();
-
+            
         }
         
         
@@ -43,9 +48,10 @@ namespace TransporteBusesApp.Frontend.Pages
             
             if(ModelState.IsValid && ruta.origenid != ruta.destinoid){
             _repositorioRutas.Create(ruta);
+            mensaje_guardado = "Ruta Creada Correctamente";
             return RedirectToPage("./List");
             }else{
-                mensaje = "error";
+                mensaje_error = "Error al crear la ruta valide que el origen y el destino no sean iguales";
                 return RedirectToPage("./Create");
             }
 
