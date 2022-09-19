@@ -16,38 +16,53 @@
     </div>
 </div>
 
-<div class="container mt-3">
+<div class="inner-content">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="card p-5">
-                <form method="POST" enctype="multipart/form-data">                   
-                    <div class="form-group row">
-                        <label asp-for="bus.marca" class="form-label col-sm-2">Marca:</label>
-                        <input class="form-control col-sm-10" asp-for="bus.marca" required placeholder="Marca">
-                    </div>
-                    <div class="form-group row">
-                        <label asp-for="bus.modelo" class="form-label col-sm-2">Modelo:</label>
-                        <input class="form-control col-sm-10" asp-for="bus.modelo" required placeholder="Modelo">
-                    </div>
-                    <div class="form-group row">
-                        <label asp-for="bus.kilometraje" class="form-label col-sm-2 ">Kilometraje:</label>
-                        <input class="form-control col-sm-10" asp-for="bus.kilometraje" required placeholder="Kilometraje">
-                    </div>
-                    <div class="form-group row">
-                        <label asp-for="bus.nro_asientos" class="form-label col-sm-2">No. de Asientos:</label>
-                        <input class="form-control col-sm-10" asp-for="bus.nro_asientos" required placeholder="No de Asientos">
-                    </div>
-                    <div class="form-group row">
-                        <label asp-for="bus.placa" class="form-label col-sm-2">Placa:</label>
-                        <input class="form-control col-sm-10" asp-for="bus.placa" required placeholder="Placa">
-                    </div>
-                    <div class="form-group row">
-                        <label asp-for="bus.foto" class="form-label col-sm-2">Ruta Foto:</label>
-                        <input class="form-control col-sm-10" asp-for="bus.foto" required placeholder="Ingrese la URL de la Foto">
-                    </div>
-                    <div>
-                        <button class="btn btn-success" type="submit">Registrar Bus</button>
-                    </div>
+        <div class="col-lg-6">
+        <div id="map">
+            <img width="100%" height="650px" src="/assets/images/buses.jpg" alt="">
+        </div>
+    </div>
+    <div class="col-lg-6 align-self-center">
+        <form id="contact" action="" method="POST">                   
+                <div class="row">
+                <div class="col-lg-12">
+                    <fieldset>
+                    <input type="text" class="form-control col-sm-10" asp-for="bus.marca" required placeholder="Marca">
+                    </fieldset>
+                </div>
+                <div class="col-lg-12">
+                    <fieldset>
+                    <input class="form-control col-sm-10" asp-for="bus.modelo" required placeholder="Modelo">
+                    </fieldset>
+                </div>
+                <div class="col-lg-12">
+                    <fieldset>
+                    <input class="form-control col-sm-10" asp-for="bus.kilometraje" required placeholder="Kilometraje">
+                    </fieldset>
+                </div>
+                <div class="col-lg-12">
+                    <fieldset>
+                    <input class="form-control col-sm-10" asp-for="bus.nro_asientos" required placeholder="No de Asientos">
+                    </fieldset>
+                </div>
+                <div class="col-lg-12">
+                    <fieldset>
+                    <input class="form-control col-sm-10" asp-for="bus.placa" required placeholder="Placa">
+                    </fieldset>
+                </div>
+                <div class="col-lg-12">
+                    <fieldset>
+                    <input class="form-control col-sm-10" asp-for="bus.foto" required placeholder="Ingrese la URL de la Foto">
+                    </fieldset>
+                </div>
+                 <div class="col-lg-12">
+                    <fieldset>
+                    <button class="btn btn-success" type="submit">Registrar Bus</button>
+                    </fieldset>
+                </div> 
+                </div>          
+                
                 </form>
             </div>
         </div>
