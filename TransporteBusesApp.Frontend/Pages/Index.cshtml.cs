@@ -15,11 +15,11 @@ namespace TransporteBusesApp.Frontend.Pages
     {
         [BindProperty]
         public Dominio.Rutas ruta { get; set; }
+
         [BindProperty]
-        public int _idorigen { get; set; }
+        public int id_origen { get; set; }
         [BindProperty]
-        public int _iddestino { get; set; }
-        [BindProperty]
+        public int id_destino { get; set; }
         public List<SelectListItem> lst_origen { get; set; }
 
         [BindProperty]
@@ -39,14 +39,14 @@ namespace TransporteBusesApp.Frontend.Pages
             lst_destino = GetListEstaciones();
         }
 
-        public IActionResult OnPostFilterList(int id_origen, int id_destino)
+        public IActionResult OnPost()
         {
            
             if (id_origen >0 && id_destino > 0) {
                 
                 return RedirectToPage("./Rutas/Estaciones/List",new{ idorigen = id_origen, iddestino = id_destino });
             }
-            return Page();
+            return RedirectToPage("Index");
         }
 
         public List<SelectListItem> GetListEstaciones()

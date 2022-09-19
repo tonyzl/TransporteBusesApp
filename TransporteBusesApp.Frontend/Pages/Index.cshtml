@@ -20,11 +20,11 @@
             </div>
             </div>
             <div class="col-lg-12">
-            <form id="search-form" name="gs" method="post" role="search" asp-page-handler="FilterList" asp-route-id_origen ="@Model._idorigen" asp-route-id_destino =@Model._iddestino >
+            <form id="search-form" name="gs" method="post" role="search"  >
                 <div class="row">
                 <div class="col-lg-4 align-self-center">
                     <fieldset>
-                        <select asp-items="Model.lst_origen" asp-for="@Model._idorigen" class="form-select" aria-label="Area" >
+                        <select asp-items="@Model.lst_origen" asp-for="@Model.id_origen"  class="form-select" aria-label="Area" >
                             <option selected>Origen</option>
                             
                         </select>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-lg-4 align-self-center">
                     <fieldset>
-                        <select asp-items="Model.lst_destino" asp-for="@Model._iddestino" class="form-select" aria-label="Default select example" >
+                        <select asp-items="@Model.lst_destino" asp-for="@Model.id_destino" class="form-select" aria-label="Default select example" >
                             <option selected>Destino</option>
                            
                         </select>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-lg-4">                        
                     <fieldset>
-                        <button class="main-button" type="submit" ><i class="fa fa-search"></i> Buscar</button>
+                        <button class="main-button" type="submit"><i class="fa fa-search" ></i> Buscar</button>
                     </fieldset>
                 </div>
                 </div>
