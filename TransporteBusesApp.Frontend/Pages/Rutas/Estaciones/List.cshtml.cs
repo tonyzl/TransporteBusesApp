@@ -24,14 +24,15 @@ namespace TransporteBusesApp.Frontend.Pages.Rutas.Estaciones
         [TempData]
         public string mensaje_guardado { get; set; }
 
+        
         public List(IRepositorioRutas repositorioRutas)
         {
             this.repositorioRutas = repositorioRutas;
         }
-        public IActionResult OnGet(int idorigen,int iddestino)
+        public void OnGet(int idorigen, int iddestino)
         {
             rutas = repositorioRutas.GetbyStations(idorigen, iddestino);
-            return RedirectToPage("./list");
+            
         }
 
         

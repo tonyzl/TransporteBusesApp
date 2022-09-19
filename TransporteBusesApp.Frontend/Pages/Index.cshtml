@@ -20,31 +20,27 @@
             </div>
             </div>
             <div class="col-lg-12">
-            <form id="search-form" name="gs" method="post" role="search" action="#">
+            <form id="search-form" name="gs" method="post" role="search"  >
                 <div class="row">
                 <div class="col-lg-4 align-self-center">
                     <fieldset>
-                        <select name="area" class="form-select" aria-label="Area" id="chooseCategory" onchange="this.form.click()">
+                        <select asp-items="@Model.lst_origen" asp-for="@Model.id_origen"  class="form-select" aria-label="Area" >
                             <option selected>Origen</option>
-                            <option value="">Terminal</option>
-                            <option value="">Estadio</option>
-                            <option value="">Centro</option>
+                            
                         </select>
                     </fieldset>
                 </div>
                 <div class="col-lg-4 align-self-center">
                     <fieldset>
-                        <select name="price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
+                        <select asp-items="@Model.lst_destino" asp-for="@Model.id_destino" class="form-select" aria-label="Default select example" >
                             <option selected>Destino</option>
-                            <option value="">Terminal</option>
-                            <option value="">Estadio</option>
-                            <option value="">Centro</option>
+                           
                         </select>
                     </fieldset>
                 </div>
                 <div class="col-lg-4">                        
                     <fieldset>
-                        <button class="main-button" type="submit" asp-page="/Rutas/Estaciones/List" asp-route-idorigen =1 asp-route-iddestino =2><i class="fa fa-search"></i> Buscar</button>
+                        <button class="main-button" type="submit"><i class="fa fa-search" ></i> Buscar</button>
                     </fieldset>
                 </div>
                 </div>

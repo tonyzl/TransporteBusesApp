@@ -95,25 +95,12 @@ namespace TransporteBusesApp.Persistencia.AppRepositorios
 
         public IEnumerable<Rutas> GetbyStations(int idorigen, int idDestino)
         {
+            var rutasfiltradas = _appContext.Rutas
+                           .Include(r => r.origen)
+                           .Include(r => r.destino).Where(r => r.origenid == idorigen && r.destinoid == idDestino).ToList();
+            return rutasfiltradas;
 
-            Estaciones Estacion1 = _repositorioEstaciones.GetWithId(1);
-            Estaciones Estacion2 = _repositorioEstaciones.GetWithId(2);
-            Estaciones Estacion3 = _repositorioEstaciones.GetWithId(3);
-            List<Rutas> rutaslocal = new List<Rutas>
-            {
 
-                new Rutas{id=1, origen = _repositorioEstaciones.GetWithId(1),destino = _repositorioEstaciones.GetWithId(3), tiempo_estimado= 45},
-                new Rutas{id=2, origen = Estacion3,destino = Estacion2, tiempo_estimado= 90},
-                new Rutas{id=3, origen = Estacion2,destino = Estacion1, tiempo_estimado= 30},
-                new Rutas{id=4, origen = Estacion3,destino = Estacion1, tiempo_estimado= 60},
-                new Rutas{id=5, origen = Estacion3,destino = Estacion2, tiempo_estimado= 50},
-                new Rutas{id=6, origen = Estacion3,destino = Estacion2, tiempo_estimado= 55},
-            };
-            var rutas_filtradas =
-                 from ruta in rutaslocal
-                 where ruta.origen.id == idorigen && ruta.destino.id == idDestino
-                 select ruta;
-            return rutas_filtradas;
 
         }
 
