@@ -7,33 +7,60 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using TransporteBusesApp.Persistencia.AppRepositorios;
 using TransporteBusesApp.Dominio;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace TransporteBusesApp.Frontend.Pages
 {
     public class IndexModel : PageModel
     {
-        public IEnumerable<Dominio.Rutas> rutasfiltradas { get; set; }
-        private readonly IRepositorioRutas _reporutas;
+        [BindProperty]
+        public Dominio.Rutas ruta { get; set; }
+        [BindProperty]
+        public int _idorigen { get; set; }
+        [BindProperty]
+        public int _iddestino { get; set; }
+        [BindProperty]
+        public List<SelectListItem> lst_origen { get; set; }
 
-        public IndexModel(IRepositorioRutas reporutas)
+        [BindProperty]
+        public List<SelectListItem> lst_destino { get; set; }
+
+        private readonly IRepositorioRutas _reporutas;
+        public IRepositorioEstaciones _repoestaciones { get; set; }
+        public IndexModel(IRepositorioRutas reporutas, IRepositorioEstaciones repoestaciones)
+
         {
             _reporutas = reporutas;
+            _repoestaciones = repoestaciones;
         }
-        public void OnGet(List<Dominio.Rutas> rutasfiltradas)
+        public void OnGet()
         {
-               if(rutasfiltradas != null)
-            {
-
-            } 
+            lst_origen = GetListEstaciones();
+            lst_destino = GetListEstaciones();
         }
 
         public IActionResult OnPostFilterList(int id_origen, int id_destino)
         {
+           
             if (id_origen >0 && id_destino > 0) {
                 
                 return RedirectToPage("./Rutas/Estaciones/List",new{ idorigen = id_origen, iddestino = id_destino });
             }
             return Page();
+        }
+
+        public List<SelectListItem> GetListEstaciones()
+        {
+            var selectestaciones = new List<SelectListItem>();
+            List<Dominio.Estaciones> estaciones = _repoestaciones.GetAll().ToList();
+
+            selectestaciones = estaciones.Select(e => new SelectListItem
+            {
+                Value = e.id.ToString(),
+                Text = e.nombre
+            }).ToList();
+
+            return selectestaciones;
         }
     }
 }
