@@ -9,9 +9,11 @@ using Microsoft.Extensions.Logging;
 using TransporteBusesApp.Dominio;
 using TransporteBusesApp.Persistencia.AppRepositorios;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TransporteBusesApp.Frontend.Pages.Rutas
 {
+    [Authorize]
     public class Edit : PageModel
     {
         [BindProperty]

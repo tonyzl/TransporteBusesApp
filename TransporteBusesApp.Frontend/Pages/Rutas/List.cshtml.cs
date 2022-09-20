@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TransporteBusesApp.Dominio;
 using TransporteBusesApp.Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TransporteBusesApp.Frontend.Pages
 {
+    [Authorize]
     public class ListRutasModel : PageModel
     {
         private readonly IRepositorioRutas repositorioRutas;

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using TransporteBusesApp.Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TransporteBusesApp.Frontend.Pages.Rutas.Estaciones
 {
+    [Authorize]
     public class List : PageModel
     {
       

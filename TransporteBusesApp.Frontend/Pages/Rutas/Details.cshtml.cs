@@ -7,8 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using TransporteBusesApp.Persistencia.AppRepositorios;
 using TransporteBusesApp.Dominio;
+using Microsoft.AspNetCore.Authorization;
+
 namespace TransporteBusesApp.Frontend.Pages.Rutas
 {
+    [Authorize]
     public class Details : PageModel
     {
         [BindProperty]
