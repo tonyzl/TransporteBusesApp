@@ -278,7 +278,7 @@ header
 .header-area .main-nav a.logo {
   background-image: url(../images/logo.png);
   background-repeat:no-repeat;
-  width: 166px;
+  width: 120px;
   height: 58px;
   display: inline-block;
   margin-top: 20px;
@@ -288,7 +288,7 @@ header
 .background-header .main-nav a.logo {
   background-image: url(../images/logo.png);
   background-repeat:no-repeat;
-  width: 164px;
+  width: 120px;
   height: 58px;
   display: inline-block;
   margin-top: 10px;
@@ -312,8 +312,8 @@ header
 }
 
 .header-area .main-nav .nav li {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .header-area .main-nav .nav li:last-child {
@@ -403,7 +403,7 @@ header
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu {
   position: absolute;
-  width: 200px;
+  width: 150px;
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
   overflow: hidden;
   top: 40px;

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="~/assets/css/templatemo-plot-listing.css">
     <link rel="stylesheet" href="~/assets/css/animated.css">
     <link rel="stylesheet" href="~/assets/css/owl.css">
+    <link rel="stylesheet" href="~/css/site.css">
     
     
 
@@ -51,7 +52,6 @@
                     <li><a asp-area="" asp-page="/Buses/List">Buses</a></li>
                     <li><a asp-area="" asp-page="/Estaciones/List">Estaciones</a></li>
                     <li><a asp-area="" asp-page="/Rutas/List">Rutas</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
                     <partial name="_LoginPartial"></partial>
                 </ul>        
                 <a class='menu-trigger'>
@@ -65,7 +65,7 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
-    
+    @*
     
     <header class="d-none">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -93,7 +93,7 @@
             </div>
         </nav>
     </header>
-    
+    *@
     <div class="container-fluid p-0">
         <main role="main">
             @RenderBody()
