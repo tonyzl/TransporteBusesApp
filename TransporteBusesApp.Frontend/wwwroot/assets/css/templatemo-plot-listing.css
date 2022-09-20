@@ -323,7 +323,7 @@ header
 
 .header-area .main-nav .nav li:last-child a ,
 .background-header .main-nav .nav li:last-child a {
-  color: #2a2a2a !important;
+  color: #8d99af;
   text-transform: capitalize;
   padding: 0px 20px;
   font-weight: 400;
