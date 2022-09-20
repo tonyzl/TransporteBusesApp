@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TransporteBusesApp.Persistencia;
 using TransporteBusesApp.Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authentication;
 
 namespace TransporteBusesApp.Frontend
 {
@@ -31,6 +32,7 @@ namespace TransporteBusesApp.Frontend
                 services.AddScoped<IRepositorioBuses, RepositorioBuses>();
                 services.AddScoped<IRepositorioRutas, RepositorioRutas>();
                 services.AddDbContext<AppdbContext>();
+                services.AddControllersWithViews();
 
         }
 
@@ -52,8 +54,9 @@ namespace TransporteBusesApp.Frontend
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

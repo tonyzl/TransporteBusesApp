@@ -44,12 +44,15 @@
                 </a>
                 <!-- ***** Logo End ***** -->
                 <!-- ***** Menu Start ***** -->
+                
                 <ul class="nav">
+                    
                     <li><a asp-area="" asp-page="/Index" class="active">Home<i class="fa fa-home"></i></a></li>
                     <li><a asp-area="" asp-page="/Buses/List">Buses</a></li>
                     <li><a asp-area="" asp-page="/Estaciones/List">Estaciones</a></li>
                     <li><a asp-area="" asp-page="/Rutas/List">Rutas</a></li>
-                    <li><a href="contact.html">Contact Us</a></li> 
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <partial name="_LoginPartial"></partial>
                 </ul>        
                 <a class='menu-trigger'>
                     <span>Menu</span>
@@ -73,7 +76,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    
                     <ul class="navbar-nav flex-grow-1">
+                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Buses/HomeB">Buses</a>
                         </li>
