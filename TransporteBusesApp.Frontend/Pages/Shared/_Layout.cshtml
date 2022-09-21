@@ -42,7 +42,7 @@
                     <nav class="d-flex flex-row-reverse navbar navbar-expand-lg navbar-light bg-light" >
                     
                     
-                        @Html.Partial("_LoginPartial")
+                        <partial name ="_LoginPartial" />
 
                         @using Microsoft.AspNetCore.Identity
                         @inject SignInManager<IdentityUser> SignInManager
@@ -56,7 +56,7 @@
                             
                         </ul>
                         }
-                        <a asp-area="" asp-page="/Index" class="logo"><img height="40px" src="/assets/images/logo.png"></a>
+                        <a asp-area="" asp-page="/Index" class="logo"><img style = "height:40px;" src="/assets/images/logo.png"></a>
                     </nav>
                 </div>                
             </div>

@@ -11,12 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace TransporteBusesApp.Frontend.Pages
 
-<<<<<<< HEAD
-{
-    [Authorize]
-=======
 {   [Authorize] 
->>>>>>> Paula
     public class FormRutasModel : PageModel
     {   
        

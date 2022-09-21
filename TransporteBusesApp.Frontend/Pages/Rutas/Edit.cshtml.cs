@@ -11,12 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 
 namespace TransporteBusesApp.Frontend.Pages.Rutas
-<<<<<<< HEAD
-{
-    [Authorize]
-=======
 {   [Authorize] 
->>>>>>> Paula
     public class Edit : PageModel
     {
         [BindProperty]

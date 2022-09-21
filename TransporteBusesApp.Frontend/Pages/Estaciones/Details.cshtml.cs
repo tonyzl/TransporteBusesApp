@@ -7,16 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using TransporteBusesApp.Persistencia.AppRepositorios;
 using TransporteBusesApp.Dominio;
 using Microsoft.AspNetCore.Authorization;
-<<<<<<< HEAD
-
-namespace TransporteBusesApp.Frontend.Pages
-{
-    [Authorize]
-=======
  
 namespace TransporteBusesApp.Frontend.Pages
 {   [Authorize] 
->>>>>>> Paula
     public class DetailsEstacionModel : PageModel
     {
         #region constructor

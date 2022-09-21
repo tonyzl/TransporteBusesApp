@@ -10,12 +10,7 @@ using TransporteBusesApp.Dominio;
 using Microsoft.AspNetCore.Authorization;
 
 namespace TransporteBusesApp.Frontend.Pages.Rutas
-<<<<<<< HEAD
-{
-    [Authorize]
-=======
 {   [Authorize] 
->>>>>>> Paula
     public class Details : PageModel
     {
         [BindProperty]
