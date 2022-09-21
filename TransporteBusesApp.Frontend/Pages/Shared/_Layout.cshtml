@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -47,13 +49,17 @@
                 <!-- ***** Menu Start ***** -->
                 
                 <ul class="nav">
-                    
+                    @if(SignInManager.IsSignedIn(User)){
                     <li><a asp-area="" asp-page="/Index" class="active">Home<i class="fa fa-home"></i></a></li>
                     <li><a asp-area="" asp-page="/Buses/List">Buses</a></li>
                     <li><a asp-area="" asp-page="/Estaciones/List">Estaciones</a></li>
                     <li><a asp-area="" asp-page="/Rutas/List">Rutas</a></li>
+                     }
                     <partial name="_LoginPartial"></partial>
-                </ul>        
+                    </ul> 
+                   
+                    
+                       
                 <a class='menu-trigger'>
                     <span>Menu</span>
                 </a>
