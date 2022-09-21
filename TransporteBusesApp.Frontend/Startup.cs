@@ -55,6 +55,10 @@ namespace TransporteBusesApp.Frontend
 
             app.UseRouting();
             app.UseAuthentication();
+<<<<<<< HEAD
+=======
+
+>>>>>>> Paula
             app.UseAuthorization();
             
 

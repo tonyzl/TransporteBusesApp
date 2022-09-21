@@ -7,6 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TransporteBusesApp.Frontend.Areas.Identity.Data;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Paula
 [assembly: HostingStartup(typeof(TransporteBusesApp.Frontend.Areas.Identity.IdentityHostingStartup))]
 namespace TransporteBusesApp.Frontend.Areas.Identity
 {
