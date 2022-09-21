@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
 using TransporteBusesApp.Dominio;
 using TransporteBusesApp.Persistencia.AppRepositorios;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TransporteBusesApp.Frontend.Pages
 
-{
+{   [Authorize] 
     public class FormRutasModel : PageModel
     {   
        

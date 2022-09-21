@@ -10,7 +10,7 @@ using TransporteBusesApp.Frontend.Areas.Identity.Data;
 namespace TransporteBusesApp.Frontend.Migrations
 {
     [DbContext(typeof(IdentityDataContext))]
-    [Migration("20220920205418_IdentityInitial")]
+    [Migration("20220920230516_IdentityInitial")]
     partial class IdentityInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

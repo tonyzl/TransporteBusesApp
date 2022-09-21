@@ -34,31 +34,33 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <header>        
         <div class="container">
-        <div class="row">
-            <div class="col-12">
-            <nav class="main-nav">
-                <!-- ***** Logo Start ***** -->
-                <a asp-area="" asp-page="/Index" class="logo">
-                </a>
-                <!-- ***** Logo End ***** -->
-                <!-- ***** Menu Start ***** -->
-                <ul class="nav">
-                    <li><a asp-area="" asp-page="/Index" class="active">Home<i class="fa fa-home"></i></a></li>
-                    <li><a asp-area="" asp-page="/Buses/List">Buses</a></li>
-                    <li><a asp-area="" asp-page="/Estaciones/List">Estaciones</a></li>
-                    <li><a asp-area="" asp-page="/Rutas/List">Rutas</a></li>
-                    <li><a href="/identity/account/Login" class="">Iniciar Sesión</a></li> 
-                </ul>        
-                <a class='menu-trigger'>
-                    <span>Menu</span>
-                </a>
-                <!-- ***** Menu End ***** -->
-            </nav>
+            <div class="row">
+                <div class="col-12">
+                    <nav class="d-flex flex-row-reverse navbar navbar-expand-lg navbar-light bg-light" >
+                    
+                    
+                        @Html.Partial("_LoginPartial")
+
+                        @using Microsoft.AspNetCore.Identity
+                        @inject SignInManager<IdentityUser> SignInManager
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active"><a class="nav-link" asp-area="" asp-page="/Buses/List">Buses</a></li>
+                            <li class="nav-item active"><a class="nav-link" asp-area="" asp-page="/Estaciones/List">Estaciones</a></li>
+                            <li class="nav-item active"><a class="nav-link" asp-area="" asp-page="/Rutas/List">Rutas</a></li>
+                            <li class="nav-item active"><a class="nav-link" asp-area="" asp-page="/Index" class="active">Home<i class="fa fa-home"></i></a></li>
+                            
+                        </ul>
+                        }
+                        <a asp-area="" asp-page="/Index" class="logo"><img height="40px" src="/assets/images/logo.png"></a>
+                    </nav>
+                </div>                
             </div>
         </div>
-        </div>
+        
     </header>
     <!-- ***** Header Area End ***** -->
 
@@ -73,6 +75,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    @Html.Partial("_LoginPartial")
+
+                        @using Microsoft.AspNetCore.Identity
+                        @inject SignInManager<IdentityUser> SignInManager
+                        @if (SignInManager.IsSignedIn(User))
+                        {
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Buses/HomeB">Buses</a>
@@ -84,6 +92,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Rutas/HomeR">Rutas</a>
                         </li>
                     </ul>
+                        }
                 </div>
             </div>
         </nav>

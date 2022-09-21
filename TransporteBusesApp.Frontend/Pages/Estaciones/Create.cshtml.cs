@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TransporteBusesApp.Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TransporteBusesApp.Frontend.Pages
-{
+{   [Authorize] 
     public class FormEstacionesModel : PageModel
     {
         private readonly IRepositorioEstaciones repositorioEstaciones;
