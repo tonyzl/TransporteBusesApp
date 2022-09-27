@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TransporteBusesApp.Persistencia": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "dbconnstring": "Server=tcp:dbtransportesrv.database.windows.net,1433;Initial Catalog=dbtransportes;Persist Security Info=False;User ID=apptransportes;Password=Misiontic2022*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+      }
+    }
+  }
+}
