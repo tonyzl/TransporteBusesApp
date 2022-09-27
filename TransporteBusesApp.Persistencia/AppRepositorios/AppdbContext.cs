@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System;
 using TransporteBusesApp.Dominio;
  
 namespace TransporteBusesApp.Persistencia
@@ -9,8 +10,9 @@ namespace TransporteBusesApp.Persistencia
         public DbSet<Rutas> Rutas { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        //optionsBuilder.UseSqlServer(@"Server=192.168.1.6\EDWINDB;Database=dbtransportes; user=EDWIN;password=edwin;");//Running on docker image
-        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=dbtransportes;");
+
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=dbtransportes;"); //localdb
+            optionsBuilder.UseSqlServer(@"Server=tcp:dbtransportesrv.database.windows.net,1433;Initial Catalog=dbtransportes;Persist Security Info=False;User ID=apptransportes;Password=Misiontic2022*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
     }
        
     }
